@@ -12,15 +12,22 @@ import * as styles from './QuickView.module.css';
 import { toOptimizedImage } from '../../helpers/general';
 
 const QuickView = (props) => {
-  const { close, buttonTitle = 'Add to Bag' } = props;
-  const sampleProduct = generateMockProductData(1, 'sample')[0];
+  const { product, close, buttonTitle = 'Add to Bag' } = props;
+
+  const colorOptions = [
+    {"color": "#000000", "title": "Anthracite Melange"},
+    {"color": "#4D34AE", "title": "Pale Purple"},
+    {"color": "#488266", "title": "Green Moss"}
+  ]
+
+  const sizeOptions =["xs", "s", "m", "l", "xl"];
 
   const ctxAddItemNotification = useContext(AddItemNotificationContext);
   const showNotification = ctxAddItemNotification.showNotification;
   const [activeSwatch, setActiveSwatch] = useState(
-    sampleProduct.colorOptions[0]
+    colorOptions[0]
   );
-  const [activeSize, setActiveSize] = useState(sampleProduct.sizeOptions[0]);
+  const [activeSize, setActiveSize] = useState(sizeOptions[0]);
 
   const handleAddToBag = () => {
     close();
@@ -34,18 +41,19 @@ const QuickView = (props) => {
       </div>
       <div className={styles.contentContainer}>
         <div className={styles.productContainer}>
-          <span className={styles.productName}>{sampleProduct.name}</span>
+          <span className={styles.productName}>{product ? product.name : "NO PRODUCT"}</span>
           <div className={styles.price}>
-            <CurrencyFormatter amount={sampleProduct.price}></CurrencyFormatter>
+            <CurrencyFormatter amount={product ? product.price : 0}></CurrencyFormatter>
           </div>
           <div className={styles.productImageContainer}>
-            <img alt={sampleProduct.alt} src={toOptimizedImage(sampleProduct.image)}></img>
+            <img alt={product ? product.altImage : "Image coming soon"} src={toOptimizedImage(product ? product.image : "/products/pdp1.jpeg")}></img>
           </div>
         </div>
 
+{/*
         <div className={styles.sectionContainer}>
           <SwatchList
-            swatchList={sampleProduct.colorOptions}
+            swatchList={colorOptions}
             activeSwatch={activeSwatch}
             setActiveSwatch={setActiveSwatch}
           />
@@ -53,11 +61,12 @@ const QuickView = (props) => {
 
         <div className={styles.sectionContainer}>
           <SizeList
-            sizeList={sampleProduct.sizeOptions}
+            sizeList={sizeOptions}
             activeSize={activeSize}
             setActiveSize={setActiveSize}
           />
         </div>
+        */}
 
         <Button onClick={() => handleAddToBag()} fullWidth level={'primary'}>
           {buttonTitle}

@@ -65,6 +65,7 @@ const ShopPage = (props) => {
   console.log(Object.keys(products).map((key) => (products[key].prices)))
   const data = Object.values(products).map((product) => (
     {
+      id: product.id,
       price: product.prices.filter((px) => (px.active))[0].unit_amount / 100,
       alt: product.name,
       name: product.name,

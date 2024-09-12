@@ -9,16 +9,17 @@ import Slider from '../Slider';
 
 const ProductCardGrid = (props) => {
   const [showQuickView, setShowQuickView] = useState(false);
+  const [quickViewProduct, setQuickViewProduct] = useState(null);
   const { height, columns = 3, data, spacing, showSlider = false } = props;
   const columnCount = {
     gridTemplateColumns: `repeat(${columns}, 1fr)`,
   };
 
   const renderCards = () => {
-    return data.map((product, index) => {
+    return data.map((product) => {
       return (
         <ProductCard
-          key={index}
+          id={product.id}
           height={height}
           price={product.price}
           imageAlt={product.alt}
@@ -27,7 +28,7 @@ const ProductCardGrid = (props) => {
           meta={product.meta}
           originalPrice={product.originalPrice}
           link={product.link}
-          showQuickView={() => setShowQuickView(true)}
+          showQuickView={() => { setQuickViewProduct(product); setShowQuickView(true); }}
         />
       );
     });
@@ -51,7 +52,7 @@ const ProductCardGrid = (props) => {
       )}
 
       <Drawer visible={showQuickView} close={() => setShowQuickView(false)}>
-        <QuickView close={() => setShowQuickView(false)} />
+        <QuickView product={quickViewProduct} close={() => setShowQuickView(false)} />
       </Drawer>
     </div>
   );
