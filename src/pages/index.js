@@ -10,12 +10,15 @@ import ProductCollectionGrid from '../components/ProductCollectionGrid';
 import ProductCardGrid from '../components/ProductCardGrid';
 import Quote from '../components/Quote';
 import Title from '../components/Title';
+import Checkout from '../components/Checkout/Checkout';
+import Products from '../components/Products/Products';
 
 import { generateMockBlogData, generateMockProductData } from '../helpers/mock';
 
 import * as styles from './index.module.css';
 import { Link, navigate } from 'gatsby';
 import { toOptimizedImage } from '../helpers/general';
+
 
 const IndexPage = () => {
   const newArrivals = generateMockProductData(3, 'shirt');
@@ -26,6 +29,7 @@ const IndexPage = () => {
   };
 
   return (
+
     <Layout disablePaddingBottom>
       {/* Hero Container */}
       <Hero
@@ -36,6 +40,9 @@ const IndexPage = () => {
         ctaText={'shop now'}
         ctaAction={goToShop}
       />
+
+      <Checkout />
+      <Products />
 
       {/* Message Container */}
       <div className={styles.messageContainer}>

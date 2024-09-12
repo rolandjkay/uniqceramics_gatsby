@@ -1,5 +1,6 @@
 import { Link, navigate } from 'gatsby';
 import React from 'react';
+import { useShoppingCart } from 'use-shopping-cart';
 
 import Button from '../Button';
 import CurrencyFormatter from '../CurrencyFormatter';
@@ -8,14 +9,37 @@ import MiniCartItem from '../MiniCartItem';
 import * as styles from './MiniCart.module.css';
 
 const MiniCart = (props) => {
-  const sampleCartItem = {
-    image: '/products/pdp1.jpeg',
+  const {
+    formattedTotalPrice,
+    redirectToCheckout,
+    cartCount,
+    clearCart,
+    cartDetails,
+  } = useShoppingCart(); 
+
+  /*const sampleCartItem = {
+    image: '/products/contemporary-vase.jpg',
+    product_id: 
     alt: '',
     name: 'Lambswool Crew Neck Jumper',
-    price: 220,
+    price: formattedTotalPrice,
     color: 'Anthracite Melange',
     size: 'xs',
-  };
+    quantity: cartCount,
+  };*/
+
+  const cart_items = Object.entries(cartDetails).map(([product_id, detail]) => {
+    return {
+      image: '/products/contemporary-vase.jpg',
+      product_id: detail.product_id,
+      alt: '',
+      name: 'Lambswool Crew Neck Jumper',
+      price: detail.value,
+      color: 'Anthracite Melange',
+      size: 'xs',
+      quantity: detail.quantity,
+    }
+  });
 
   return (
     <div className={styles.root}>
@@ -23,7 +47,9 @@ const MiniCart = (props) => {
         <h4>My Bag</h4>
       </div>
       <div className={styles.cartItemsContainer}>
-        <MiniCartItem {...sampleCartItem} />
+        {cart_items.map(cart_item => (
+          <MiniCartItem {...cart_item} />
+        ))}
       </div>
       <div className={styles.summaryContainer}>
         <div className={styles.summaryContent}>

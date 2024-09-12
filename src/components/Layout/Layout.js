@@ -1,6 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
+import { CartProvider } from 'use-shopping-cart';
 
 import Header from '../Header';
 import Footer from '../Footer';
@@ -11,6 +12,16 @@ import './Globals.css';
 
 const Layout = ({ props, children, disablePaddingBottom = false }) => {
   return (
+    <CartProvider
+    mode="payment"
+    cartMode="client-only"
+    stripe={process.env.GATSBY_STRIPE_PUBLISHABLE_KEY}
+    successUrl="stripe.com"
+    cancelUrl="twitter.com/dayhaysoos"
+    currency="USD"
+    allowedCountries={['US', 'GB', 'CA']}
+    billingAddressCollection={true}
+  >
     <>
       <Helmet>
         {/* Add any sitewide scripts here */}
@@ -37,6 +48,7 @@ const Layout = ({ props, children, disablePaddingBottom = false }) => {
       </main>
       <Footer />
     </>
+    </CartProvider>
   );
 };
 

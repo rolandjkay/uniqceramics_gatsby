@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import { useShoppingCart } from 'use-shopping-cart';
 
 import Icon from '../Icons/Icon';
 import * as styles from './AdjustItem.module.css';
 
 const AdjustItem = (props) => {
-  const { isTransparent } = props;
-  const [qty, setQty] = useState(1);
+  const { isTransparent, product_id, quantity } = props;
+  const { decrementItem, cartDetails } = useShoppingCart()
+  const [qty, setQty] = useState(quantity);
 
   const handleOnChange = (e) => {
     const num = parseInt(e.target.value);
@@ -24,6 +26,7 @@ const AdjustItem = (props) => {
         onClick={() => {
           if (qty <= 1) return;
           setQty(qty - 1);
+          /*decrementItem(product_id);*/
         }}
       >
         <Icon symbol={'minus'}></Icon>

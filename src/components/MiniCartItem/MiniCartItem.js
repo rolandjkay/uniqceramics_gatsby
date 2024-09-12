@@ -9,7 +9,7 @@ import * as styles from './MiniCartItem.module.css';
 import { toOptimizedImage } from '../../helpers/general';
 
 const MiniCartItem = (props) => {
-  const { image, alt, name, price, color, size } = props;
+  const { image, alt, name, price, color, size, product_id, quantity} = props;
 
   return (
     <div className={styles.root}>
@@ -33,7 +33,7 @@ const MiniCartItem = (props) => {
           </span>
         </div>
         <div className={styles.adjustItemContainer}>
-          <AdjustItem />
+          <AdjustItem quantity={quantity} product_id={product_id}/>
         </div>
       </div>
       <div className={styles.closeContainer}>

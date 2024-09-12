@@ -3,5 +3,15 @@ module.exports = {
     title: `Gatsby Sydney Ecommerce Theme`,
     siteUrl: `https://jamm.matter.design`,
   },
-  plugins: [],
+  plugins: [
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-stripe`,
+      options: {
+        objects: ["Price"],
+        secretKey: "XXXXXX",
+        downloadFiles: false,
+      },
+    },
+  ],
 };

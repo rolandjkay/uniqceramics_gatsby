@@ -2,6 +2,8 @@ node_modules
 .DS_Store
 .cache/
 .env
+.env.development
+.env.production
 public
 
 # Local Netlify folder
