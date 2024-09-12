@@ -10,8 +10,6 @@ import ProductCollectionGrid from '../components/ProductCollectionGrid';
 import ProductCardGrid from '../components/ProductCardGrid';
 import Quote from '../components/Quote';
 import Title from '../components/Title';
-import Checkout from '../components/Checkout/Checkout';
-import Products from '../components/Products/Products';
 
 import { generateMockBlogData, generateMockProductData } from '../helpers/mock';
 
@@ -40,9 +38,6 @@ const IndexPage = () => {
         ctaText={'shop now'}
         ctaAction={goToShop}
       />
-
-      <Checkout />
-      <Products />
 
       {/* Message Container */}
       <div className={styles.messageContainer}>

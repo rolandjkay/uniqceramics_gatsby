@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { graphql, useStaticQuery } from "gatsby"
+
 import * as styles from './shop.module.css';
 
 import Banner from '../components/Banner';
@@ -10,13 +12,76 @@ import Icon from '../components/Icons/Icon';
 import Layout from '../components/Layout';
 import LayoutOption from '../components/LayoutOption';
 import ProductCardGrid from '../components/ProductCardGrid';
-import { generateMockProductData } from '../helpers/mock';
 import Button from '../components/Button';
 import Config from '../config.json';
 
 const ShopPage = (props) => {
   const [showFilter, setShowFilter] = useState(false);
-  const data = generateMockProductData(6, 'woman');
+
+  /*
+   * LOAD PRODUCTS FROM STRIPE
+   *
+   * Probably should be in its own file.
+   * Load all the prodcuts of a certain type (?) from Stripe.
+   * We only have one type at the moment, and I don't know if/how 
+   * Stripe would support mode, but imagine we had ceramics and
+   * accessories, for example, that we wanted on different pages
+   */
+  const { prices } = useStaticQuery(graphql`
+    query ProductPrices {
+      prices: allStripePrice(
+        filter: { active: { eq: true } }
+        sort: { unit_amount: ASC }
+      ) {
+        edges {
+          node {
+            id
+            active
+            currency
+            unit_amount
+            product {
+              id
+              name
+              description
+              images
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  // Group prices by product
+  const products = {}
+  for (const { node: price } of prices.edges) {
+    const product = price.product
+    if (!products[product.id]) {
+      products[product.id] = product
+      products[product.id].prices = []
+    }
+    products[product.id].prices.push(price)
+  }
+
+  console.log(Object.keys(products).map((key) => (products[key].prices)))
+  const data = Object.values(products).map((product) => (
+    {
+      price: product.prices.filter((px) => (px.active))[0].unit_amount / 100,
+      alt: product.name,
+      name: product.name,
+      image: product.images.length > 0 ? product.images[0] : "/products/pdp1.jpeg",
+      meta: product.description,
+      //originalPrice: 100,
+    }
+
+       /* <ProductCard key={products[key].id} product={products[key]} /> */
+  ))
+
+
+
+  /*
+   * END LOAD PRODUCTS FROM STRIPE
+   */
+
 
   useEffect(() => {
     window.addEventListener('keydown', escapeHandler);

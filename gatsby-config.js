@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Sydney Ecommerce Theme`,
@@ -9,7 +13,7 @@ module.exports = {
       resolve: `gatsby-source-stripe`,
       options: {
         objects: ["Price"],
-        secretKey: "XXXXXX",
+        secretKey: process.env.STRIPE_SECRET_KEY,
         downloadFiles: false,
       },
     },
