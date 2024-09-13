@@ -47,7 +47,7 @@ const MiniCartItem = (props) => {
         </div>
       </div>
       <div className={styles.closeContainer}>
-        <RemoveItem />
+        <RemoveItem cart_id={cart_detail.id} />
       </div>
     </div>
   );
