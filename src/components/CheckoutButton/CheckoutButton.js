@@ -1,9 +1,53 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useShoppingCart } from 'use-shopping-cart';
 
 import getStripe from '../../helpers/stripejs';
 
-const CheckoutButton = () => {
+import * as styles from '../Button/Button.module.css';
+
+const CheckoutButton = ({
+    children,
+    level,
+    type,
+    size,
+    disabled,
+    onClick,
+    className,
+    flat,
+    link,
+    fullWidth,
+    theme
+  }) => {
+  const classes = level ? [styles.button] : [styles.link];
+
+  if (level in styles) {
+    classes.push(styles[level]);
+  }
+  if (size in styles) {
+    classes.push(styles[size]);
+  }
+  if (theme in styles) {
+    classes.push(styles[theme]);
+  }
+
+  if (disabled) {
+    classes.push(styles.disabled);
+  }
+  if (flat) {
+    classes.push(styles.flat);
+  }
+  if (link) {
+    classes.push(styles.link);
+  }
+  if (fullWidth) {
+    classes.push(styles.fullWidth);
+  }
+  if (className) {
+    classes.push(className);
+  }
+
+  const classOutput = classes.join(' ');
+
   const { cartDetails } = useShoppingCart();
 
   const handleCheckout = async () => {
@@ -28,7 +72,7 @@ const CheckoutButton = () => {
     }
   };
 
-  return <button onClick={handleCheckout}>Checkout Foo</button>;
+  return <button className={classOutput} onClick={handleCheckout}>{children}</button>;
 }; 
 
 export default CheckoutButton;

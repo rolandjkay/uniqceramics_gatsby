@@ -74,7 +74,9 @@ const OrderSummary = (props) => {
         <CheckoutButton
           fullWidth
           level={'primary'}
-        />
+        >
+          checkout
+        </CheckoutButton>
         <div className={styles.linkContainer}>
           <Link to={'/shop'}>CONTINUE SHOPPING</Link>
         </div>
