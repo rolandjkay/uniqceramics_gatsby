@@ -40,13 +40,14 @@ const CartPage = (props) => {
           </div>
           <div className={styles.summaryContainer}>
             <h3>My Bag</h3>
+
             <div className={styles.cartContainer}>
               <div className={styles.cartItemsContainer}>
                 <CartItem {...sampleCartItem} />
                 <CartItem {...sampleCartItem} />
               </div>
               <OrderSummary />
-            </div>
+            </div> 
           </div>
         </Container>
       </div>

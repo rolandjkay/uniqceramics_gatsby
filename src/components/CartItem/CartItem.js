@@ -38,7 +38,8 @@ const CartItem = (props) => {
         </div>
       </div>
       <div className={styles.adjustItemContainer}>
-        <AdjustItem />
+        {/*<AdjustItem /> */}
+        AdjustItem missing
       </div>
       <div className={styles.priceContainer}>
         <CurrencyFormatter amount={price} appendZero />
@@ -47,7 +48,8 @@ const CartItem = (props) => {
         <RemoveItem />
       </div>
       <Drawer visible={showQuickView} close={() => setShowQuickView(false)}>
-        <QuickView close={() => setShowQuickView(false)} />
+        QuickView not working
+        {/*<QuickView product={null} close={() => setShowQuickView(false)} /> */}
       </Drawer>
     </div>
   );

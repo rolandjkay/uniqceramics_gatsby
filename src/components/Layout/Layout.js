@@ -15,7 +15,7 @@ const Layout = ({ props, children, disablePaddingBottom = false }) => {
     <CartProvider
     mode="payment"
     cartMode="client-only"
-    stripe={process.env.GATSBY_STRIPE_PUBLISHABLE_KEY ? process.env.GATSBY_STRIPE_PUBLISHABLE_KEY : "DUMMY_PUBLISHABLE_KEY"}
+    stripe={process.env.GATSBY_STRIPE_PUBLISHABLE_KEY}
     successUrl="stripe.com"
     cancelUrl="twitter.com/dayhaysoos"
     currency="USD"
