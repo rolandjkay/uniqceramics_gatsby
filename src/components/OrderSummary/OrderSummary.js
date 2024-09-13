@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link, navigate } from 'gatsby';
+import { useShoppingCart } from 'use-shopping-cart';
+
 
 import Button from '../Button';
 import FormInputField from '../FormInputField/FormInputField';
@@ -11,6 +13,13 @@ const OrderSummary = (props) => {
   const [coupon, setCoupon] = useState('');
   const [giftCard, setGiftCard] = useState('');
 
+  const { cartDetails } = useShoppingCart(); 
+
+  // Calculate subtotal
+  const subtotal = Object.values(cartDetails).reduce((accumulator, detail) => {
+   return accumulator + (detail.quantity * detail.price);
+ }, 0);
+
   return (
     <div className={styles.root}>
       <div className={styles.orderSummary}>
@@ -19,20 +28,21 @@ const OrderSummary = (props) => {
           <div className={styles.labelContainer}>
             <span>Subtotal</span>
             <span>
-              <CurrencyFormatter amount={440} appendZero />
+              <CurrencyFormatter amount={subtotal} appendZero />
             </span>
           </div>
           <div className={styles.labelContainer}>
             <span>Shipping</span>
-            <span>---</span>
+            <span>£10</span>
           </div>
           <div className={styles.labelContainer}>
             <span>Tax</span>
             <span>
-              <CurrencyFormatter amount={0} appendZero />
+              <CurrencyFormatter amount={subtotal * 0.2} appendZero />
             </span>
           </div>
         </div>
+        {/*
         <div className={styles.couponContainer}>
           <span>Coupon Code</span>
           <FormInputField
@@ -49,10 +59,11 @@ const OrderSummary = (props) => {
             icon={'arrow'}
           />
         </div>
+        */}
         <div className={styles.totalContainer}>
           <span>Total: </span>
           <span>
-            <CurrencyFormatter amount={440} appendZero />
+            <CurrencyFormatter amount={subtotal * 1.2 + 10} appendZero />
           </span>
         </div>
       </div>
