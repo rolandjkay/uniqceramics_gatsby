@@ -1,5 +1,6 @@
 import { Link } from 'gatsby';
 import React from 'react';
+import { useShoppingCart } from 'use-shopping-cart';
 
 import Brand from '../components/Brand';
 import CartItem from '../components/CartItem';
@@ -11,14 +12,7 @@ import OrderSummary from '../components/OrderSummary';
 import * as styles from './cart.module.css';
 
 const CartPage = (props) => {
-  const sampleCartItem = {
-    image: '/products/pdp1.jpeg',
-    alt: '',
-    name: 'Lambswool Crew Neck Jumper',
-    price: 220,
-    color: 'Anthracite Melange',
-    size: 'XS',
-  };
+  const { cartDetails } = useShoppingCart(); 
 
   return (
     <div>
@@ -34,17 +28,19 @@ const CartPage = (props) => {
               </Link>
             </div>
             <Brand />
+            {/*
             <div className={styles.loginContainer}>
               <Link to={'/login'}>Login</Link>
-            </div>
+            </div> */}
           </div>
           <div className={styles.summaryContainer}>
             <h3>My Bag</h3>
 
             <div className={styles.cartContainer}>
               <div className={styles.cartItemsContainer}>
-                <CartItem {...sampleCartItem} />
-                <CartItem {...sampleCartItem} />
+                {Object.values(cartDetails).map(cart_detail => (
+                  <CartItem key={cart_detail.id} cart_id={cart_detail.id} />
+                ))}
               </div>
               <OrderSummary />
             </div> 

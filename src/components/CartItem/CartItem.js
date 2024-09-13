@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useShoppingCart } from 'use-shopping-cart';
 
 import AdjustItem from '../AdjustItem';
 import CurrencyFormatter from '../CurrencyFormatter';
@@ -11,8 +12,13 @@ import { navigate } from 'gatsby';
 import { toOptimizedImage } from '../../helpers/general';
 
 const CartItem = (props) => {
+  const { cart_id } = props;
+
   const [showQuickView, setShowQuickView] = useState(false);
-  const { image, alt, color, name, size, price } = props;
+  const { cartDetails } = useShoppingCart(); 
+
+  const cart_detail = cartDetails[cart_id] ;
+
 
   return (
     <div className={styles.root}>
@@ -21,10 +27,10 @@ const CartItem = (props) => {
         role={'presentation'}
         onClick={() => navigate('/product/sample')}
       >
-        <img src={toOptimizedImage(image)} alt={alt}></img>
+        <img src={toOptimizedImage(cart_detail.image)} alt={cart_detail.alt}></img>
       </div>
       <div className={styles.itemContainer}>
-        <span className={styles.name}>{name}</span>
+        <span className={styles.name}>{cart_detail.name}</span>
         {/*<div className={styles.metaContainer}>
           <span>Color: {color}</span>
           <span>Size: {size}</span>
@@ -38,14 +44,13 @@ const CartItem = (props) => {
         </div>
       </div>
       <div className={styles.adjustItemContainer}>
-        {/*<AdjustItem /> */}
-        AdjustItem missing
+        <AdjustItem cart_id={cart_id} />
       </div>
       <div className={styles.priceContainer}>
-        <CurrencyFormatter amount={price} appendZero />
+        <CurrencyFormatter amount={cart_detail.price} appendZero />
       </div>
       <div className={styles.removeContainer}>
-        <RemoveItem />
+        <RemoveItem cart_id={cart_id}/> 
       </div>
       <Drawer visible={showQuickView} close={() => setShowQuickView(false)}>
         QuickView not working

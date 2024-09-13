@@ -49,7 +49,7 @@ const MiniCart = (props) => {
       </div>
       <div className={styles.cartItemsContainer}>
         {Object.values(cartDetails).map(cart_detail => (
-          <MiniCartItem cart_id={cart_detail.id} />
+          <MiniCartItem key={cart_detail.id} cart_id={cart_detail.id} />
         ))}
       </div>
       <div className={styles.summaryContainer}>
