@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Link, navigate } from 'gatsby';
+
 import { useShoppingCart } from 'use-shopping-cart';
 
-
+import getStripe from '../../helpers/stripejs';
 import Button from '../Button';
+import CheckoutButton from '../CheckoutButton';
+
 import FormInputField from '../FormInputField/FormInputField';
 import CurrencyFormatter from '../CurrencyFormatter';
 
@@ -68,13 +71,10 @@ const OrderSummary = (props) => {
         </div>
       </div>
       <div className={styles.actionContainer}>
-        <Button
-          onClick={() => navigate('/orderConfirm')}
+        <CheckoutButton
           fullWidth
           level={'primary'}
-        >
-          checkout
-        </Button>
+        />
         <div className={styles.linkContainer}>
           <Link to={'/shop'}>CONTINUE SHOPPING</Link>
         </div>
