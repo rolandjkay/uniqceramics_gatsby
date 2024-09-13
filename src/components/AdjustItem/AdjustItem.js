@@ -5,14 +5,14 @@ import Icon from '../Icons/Icon';
 import * as styles from './AdjustItem.module.css';
 
 const AdjustItem = (props) => {
-  const { isTransparent, product_id, quantity } = props;
-  const { decrementItem, cartDetails } = useShoppingCart()
-  const [qty, setQty] = useState(quantity);
+  const { isTransparent, cart_id } = props;
+  const { decrementItem, incrementItem, cartDetails } = useShoppingCart()
 
   const handleOnChange = (e) => {
     const num = parseInt(e.target.value);
-    setQty(num);
   };
+
+  const quantity = cart_id == null ? -1 : cartDetails[cart_id].quantity;
 
   return (
     <div
@@ -24,9 +24,9 @@ const AdjustItem = (props) => {
         className={styles.iconContainer}
         role={'presentation'}
         onClick={() => {
-          if (qty <= 1) return;
-          setQty(qty - 1);
-          /*decrementItem(product_id);*/
+          if (quantity > 1) {
+            decrementItem(cart_id);
+          }
         }}
       >
         <Icon symbol={'minus'}></Icon>
@@ -36,12 +36,12 @@ const AdjustItem = (props) => {
           className={`${isTransparent === true ? styles.transparentInput : ''}`}
           onChange={(e) => handleOnChange(e)}
           type={'number'}
-          value={qty}
+          value={quantity}
         ></input>
       </div>
       <div
         role={'presentation'}
-        onClick={() => setQty(qty + 1)}
+        onClick={() => incrementItem(cart_id)}
         className={styles.iconContainer}
       >
         <Icon symbol={'plus'}></Icon>

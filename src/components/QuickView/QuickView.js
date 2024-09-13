@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { useShoppingCart } from 'use-shopping-cart';
 
 import Button from '../Button';
 import CurrencyFormatter from '../CurrencyFormatter';
@@ -29,7 +30,9 @@ const QuickView = (props) => {
   );
   const [activeSize, setActiveSize] = useState(sizeOptions[0]);
 
+  const { addItem } = useShoppingCart();
   const handleAddToBag = () => {
+    addItem({...product, currency: "GBP"});
     close();
     showNotification();
   };

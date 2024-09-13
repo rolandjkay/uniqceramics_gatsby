@@ -25,10 +25,10 @@ const CartItem = (props) => {
       </div>
       <div className={styles.itemContainer}>
         <span className={styles.name}>{name}</span>
-        <div className={styles.metaContainer}>
+        {/*<div className={styles.metaContainer}>
           <span>Color: {color}</span>
           <span>Size: {size}</span>
-        </div>
+        </div>*/}
         <div
           className={styles.editContainer}
           role={'presentation'}

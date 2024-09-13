@@ -17,29 +17,30 @@ const MiniCart = (props) => {
     cartDetails,
   } = useShoppingCart(); 
 
-  /*const sampleCartItem = {
-    image: '/products/contemporary-vase.jpg',
-    product_id: 
-    alt: '',
-    name: 'Lambswool Crew Neck Jumper',
-    price: formattedTotalPrice,
-    color: 'Anthracite Melange',
-    size: 'xs',
-    quantity: cartCount,
-  };*/
+  /*
+   * cartDetails is a map from id to object like below
+   * {
+   *     "id": "prod_QpcJYTziksfEwe",
+   *     "price": 500,
+   *     "alt": "Contemporary Vase",
+   *     "name": "Contemporary Vase",
+   *     "image": "https://files.stripe.com/links/MDB8YWNjdF8xUHh3bU8wOXd6YmpVYjN0fGZsX3Rlc3RfTTRTTzhrYmxRNUlMcDlXOWh2OUM2Szgx00n833iUNK",
+   *     "meta": "A gorgeously beautiful contemporary vase available is a variety of shades of blue.",
+   *     "currency": "GBP",
+   *     "quantity": 1,
+   *     "value": 500,
+   *     "timestamp": "2024-09-12T17:22:25.112Z",
+   *     "price_data": {},
+   *     "product_data": {},
+   *     "formattedValue": "US$5.00",
+   *     "formattedPrice": "US$5.00"
+   * }
+   */
 
-  const cart_items = Object.entries(cartDetails).map(([product_id, detail]) => {
-    return {
-      image: '/products/contemporary-vase.jpg',
-      product_id: detail.product_id,
-      alt: '',
-      name: 'Lambswool Crew Neck Jumper',
-      price: detail.value,
-      color: 'Anthracite Melange',
-      size: 'xs',
-      quantity: detail.quantity,
-    }
-  });
+  // Calculate total
+  const total = Object.values(cartDetails).reduce((accumulator, detail) => {
+    return accumulator + (detail.quantity * detail.price);
+  }, 0);
 
   return (
     <div className={styles.root}>
@@ -47,16 +48,16 @@ const MiniCart = (props) => {
         <h4>My Bag</h4>
       </div>
       <div className={styles.cartItemsContainer}>
-        {cart_items.map(cart_item => (
-          <MiniCartItem {...cart_item} />
+        {Object.values(cartDetails).map(cart_detail => (
+          <MiniCartItem cart_id={cart_detail.id} />
         ))}
       </div>
       <div className={styles.summaryContainer}>
         <div className={styles.summaryContent}>
           <div className={styles.totalContainer}>
-            <span>Total (USD)</span>
+            <span>Total (GBP)</span>
             <span>
-              <CurrencyFormatter amount={220} appendZero />
+              <CurrencyFormatter amount={total} appendZero />
             </span>
           </div>
           <span className={styles.taxNotes}>
