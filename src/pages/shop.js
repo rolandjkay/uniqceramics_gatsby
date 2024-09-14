@@ -27,6 +27,7 @@ const ShopPage = (props) => {
    * Stripe would support mode, but imagine we had ceramics and
    * accessories, for example, that we wanted on different pages
    */
+  /*
   const { prices } = useStaticQuery(graphql`
     query ProductPrices {
       prices: allStripePrice(
@@ -66,7 +67,8 @@ const ShopPage = (props) => {
   const data = Object.values(products).map((product) => (
     {
       id: product.id,
-      price: product.prices.filter((px) => (px.active))[0].unit_amount / 100,
+      price: product.prices.filter((px) => (px.active))[0].unit_amount,
+      price_id: product.prices.filter((px) => (px.active))[0].id,
       alt: product.name,
       name: product.name,
       image: product.images.length > 0 ? product.images[0] : "/products/pdp1.jpeg",
@@ -74,11 +76,11 @@ const ShopPage = (props) => {
       //originalPrice: 100,
     }
 
-       /* <ProductCard key={products[key].id} product={products[key]} /> */
+       /* <ProductCard key={products[key].id} product={products[key]} /> *_/
   ))
 
-
-
+  console.log("DATA", data)
+*/
   /*
    * END LOAD PRODUCTS FROM STRIPE
    */
@@ -146,7 +148,7 @@ const ShopPage = (props) => {
           </div>
           <div className={styles.productContainer}>
             <span className={styles.mobileItemCount}>476 items</span>
-            <ProductCardGrid data={data}></ProductCardGrid>
+            <ProductCardGrid></ProductCardGrid>
           </div>
           <div className={styles.loadMoreContainer}>
             <span>6 of 456</span>

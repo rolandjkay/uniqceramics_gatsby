@@ -1,11 +1,22 @@
 import React from 'react';
 import * as styles from './accountSuccess.module.css';
+import { useShoppingCart } from 'use-shopping-cart';
+
 
 import ActionCard from '../components/ActionCard';
 import Container from '../components/Container';
 import Layout from '../components/Layout/Layout';
 
 const OrderConfirmPage = (props) => {
+  /*
+   * Clear the cart
+   */
+  const isEmpty = (obj) => Object.entries(obj).length === 0;
+  const { clearCart, cartDetails } = useShoppingCart();
+  if (!isEmpty(cartDetails)) {
+    clearCart();
+  }
+
   return (
     <Layout disablePaddingBottom>
       <Container size={'medium'}>

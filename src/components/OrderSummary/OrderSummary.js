@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, navigate } from 'gatsby';
 
 import { useShoppingCart } from 'use-shopping-cart';
+import { useInventory } from '../InventoryProvider/InventoryProvider';
 
 import getStripe from '../../helpers/stripejs';
 import Button from '../Button';
@@ -17,10 +18,11 @@ const OrderSummary = (props) => {
   const [giftCard, setGiftCard] = useState('');
 
   const { cartDetails } = useShoppingCart(); 
+  const { inventory } = useInventory();
 
   // Calculate subtotal
   const subtotal = Object.values(cartDetails).reduce((accumulator, detail) => {
-   return accumulator + (detail.quantity * detail.price);
+   return accumulator + (detail.quantity * inventory[detail.product_id].default_price);
  }, 0);
 
   return (
@@ -31,7 +33,7 @@ const OrderSummary = (props) => {
           <div className={styles.labelContainer}>
             <span>Subtotal</span>
             <span>
-              <CurrencyFormatter amount={subtotal} appendZero />
+              <CurrencyFormatter amount={subtotal/100} appendZero />
             </span>
           </div>
           <div className={styles.labelContainer}>
@@ -41,7 +43,7 @@ const OrderSummary = (props) => {
           <div className={styles.labelContainer}>
             <span>Tax</span>
             <span>
-              <CurrencyFormatter amount={subtotal * 0.2} appendZero />
+              <CurrencyFormatter amount={subtotal/100 * 0.2} appendZero />
             </span>
           </div>
         </div>
@@ -66,7 +68,7 @@ const OrderSummary = (props) => {
         <div className={styles.totalContainer}>
           <span>Total: </span>
           <span>
-            <CurrencyFormatter amount={subtotal * 1.2 + 10} appendZero />
+            <CurrencyFormatter amount={subtotal/100 * 1.2 + 10} appendZero />
           </span>
         </div>
       </div>

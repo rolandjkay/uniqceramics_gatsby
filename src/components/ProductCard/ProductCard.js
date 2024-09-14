@@ -5,19 +5,16 @@ import * as styles from './ProductCard.module.css';
 import Icon from '../Icons/Icon';
 import CurrencyFormatter from '../CurrencyFormatter';
 import { toOptimizedImage } from '../../helpers/general';
+import { useInventory } from '../InventoryProvider/InventoryProvider';
+
 
 const ProductCard = (props) => {
   const [isWishlist, setIsWishlist] = useState(false);
-  const {
-    image,
-    imageAlt,
-    name,
-    price,
-    originalPrice,
-    meta,
-    showQuickView,
-    height = 580,
-  } = props;
+  const { product_id, showQuickView, height = 580 } = props;
+  const { inventory } = useInventory();
+
+  /* Originally in the template, but we don't support sales yet. */
+  const originalPrice = null;
 
   const handleRouteToProduct = () => {
     navigate('/product/sample');
@@ -40,7 +37,10 @@ const ProductCard = (props) => {
         onClick={() => handleRouteToProduct()}
         role={'presentation'}
       >
-        <img style={{ height: `${height}px` }} src={toOptimizedImage(image)} alt={imageAlt}></img>
+        <img style={{ height: `${height}px` }}
+             src={toOptimizedImage(inventory[product_id].default_image)}
+             alt={inventory[product_id].name}>
+        </img>
         <div
           className={styles.bagContainer}
           role={'presentation'}
@@ -64,12 +64,12 @@ const ProductCard = (props) => {
         </div>
       </div>
       <div className={styles.detailsContainer}>
-        <span className={styles.productName}>{name}</span>
+        <span className={styles.productName}>{inventory[product_id].name}</span>
         <div className={styles.prices}>
           <span
             className={`${originalPrice !== undefined ? styles.salePrice : ''}`}
           >
-            <CurrencyFormatter amount={price}></CurrencyFormatter>
+            <CurrencyFormatter amount={inventory[product_id].default_price / 100}></CurrencyFormatter>
           </span>
           {originalPrice && (
             <span className={styles.originalPrice}>
@@ -77,7 +77,7 @@ const ProductCard = (props) => {
             </span>
           )}
         </div>
-        <span className={styles.meta}>{meta}</span>
+        <span className={styles.meta}>{inventory[product_id].description}</span>
       </div>
     </div>
   );

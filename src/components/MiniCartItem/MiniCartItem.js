@@ -1,5 +1,6 @@
 import React from 'react';
 import { useShoppingCart } from 'use-shopping-cart';
+import { useInventory } from '../InventoryProvider/InventoryProvider';
 
 import { navigate } from 'gatsby';
 import AdjustItem from '../AdjustItem';
@@ -11,9 +12,21 @@ import { toOptimizedImage } from '../../helpers/general';
 
 const MiniCartItem = (props) => {
   var {cart_id} = props;
-  const { decrementItem, incrementItem, cartDetails } = useShoppingCart()
+  const { decrementItem, incrementItem, cartDetails } = useShoppingCart();
+  const { inventory } = useInventory();
 
-  const cart_detail = (cart_id !== null) ? cartDetails[cart_id] : 
+  const cart_detail = cartDetails[cart_id];
+
+  const product = inventory[cart_detail.product_id];
+
+  const item_details = (cart_detail !== null && product) 
+                                         ? {
+                                            image : product.default_image,
+                                            alt: product.name,
+                                            name: product.name,
+                                            price: product.default_price,
+                                           }
+                                          : 
                                           {
                                             image: "/products/pdp1.jpeg",
                                             alt: "Image coming soon",
@@ -28,13 +41,13 @@ const MiniCartItem = (props) => {
         role={'presentation'}
         onClick={() => navigate('/product/sample')}
       >
-        <img src={toOptimizedImage(cart_detail.image )} alt={[cart_detail.alt]} />
+        <img src={toOptimizedImage(item_details.image )} alt={[item_details.alt]} />
       </div>
       <div className={styles.detailsContainer}>
         <div className={styles.metaContainer}>
-          <span className={styles.name}>{cart_detail.name}</span>
+          <span className={styles.name}>{item_details.name}</span>
           <div className={styles.priceContainer}>
-            <CurrencyFormatter amount={cart_detail.price} />
+            <CurrencyFormatter amount={item_details.price / 100} />
           </div>
           {/*<span className={styles.meta}>Color: {color}</span>
           <span className={styles.meta}>
@@ -43,11 +56,11 @@ const MiniCartItem = (props) => {
           </span>*/}
         </div>
         <div className={styles.adjustItemContainer}>
-          <AdjustItem cart_id={cart_detail.id}/>
+          <AdjustItem cart_id={cart_id}/>
         </div>
       </div>
       <div className={styles.closeContainer}>
-        <RemoveItem cart_id={cart_detail.id} />
+        <RemoveItem cart_id={cart_id} />
       </div>
     </div>
   );

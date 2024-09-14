@@ -1,5 +1,6 @@
 import React from 'react';
 import { CartProvider } from 'use-shopping-cart';
+import InventoryProvider from './src/components/InventoryProvider/InventoryProvider';
 
 import { NotificationProvider } from './src/context/AddItemNotificationProvider';
 
@@ -15,7 +16,9 @@ export const wrapRootElement = ({ element }) => (
       billingAddressCollection={true}
   >
     <NotificationProvider>
-      {element}
+      <InventoryProvider>
+        {element}
+      </InventoryProvider>
     </NotificationProvider>
   </CartProvider>
 );

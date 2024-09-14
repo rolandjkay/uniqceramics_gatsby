@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useShoppingCart } from 'use-shopping-cart';
+import { useInventory } from '../InventoryProvider/InventoryProvider';
 
 import Button from '../Button';
 import CurrencyFormatter from '../CurrencyFormatter';
@@ -13,7 +14,8 @@ import * as styles from './QuickView.module.css';
 import { toOptimizedImage } from '../../helpers/general';
 
 const QuickView = (props) => {
-  const { product, close, buttonTitle = 'Add to Bag' } = props;
+  const { product_id, close, buttonTitle = 'Add to Bag' } = props;
+  const { inventory } = useInventory();
 
   const colorOptions = [
     {"color": "#000000", "title": "Anthracite Melange"},
@@ -32,7 +34,7 @@ const QuickView = (props) => {
 
   const { addItem } = useShoppingCart();
   const handleAddToBag = () => {
-    addItem({...product, currency: "GBP"});
+    addItem({product_id: product_id, currency: "GBP"});
     close();
     showNotification();
   };
@@ -44,12 +46,14 @@ const QuickView = (props) => {
       </div>
       <div className={styles.contentContainer}>
         <div className={styles.productContainer}>
-          <span className={styles.productName}>{product ? product.name : "NO PRODUCT"}</span>
+          <span className={styles.productName}>{product_id ? inventory[product_id].name : "NO PRODUCT"}</span>
           <div className={styles.price}>
-            <CurrencyFormatter amount={product ? product.price : 0}></CurrencyFormatter>
+            <CurrencyFormatter amount={product_id ? inventory[product_id].price : 0}></CurrencyFormatter>
           </div>
           <div className={styles.productImageContainer}>
-            <img alt={product ? product.altImage : "Image coming soon"} src={toOptimizedImage(product ? product.image : "/products/pdp1.jpeg")}></img>
+            <img alt={product_id ? inventory[product_id].name : "Image coming soon"} 
+                 src={toOptimizedImage(product_id ? inventory[product_id].default_image : "/products/pdp1.jpeg")}>
+            </img>
           </div>
         </div>
 

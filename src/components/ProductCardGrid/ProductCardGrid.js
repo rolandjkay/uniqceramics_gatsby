@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import * as styles from './ProductCardGrid.module.css';
+import { useInventory } from '../InventoryProvider/InventoryProvider';
 
 import Drawer from '../Drawer';
 import ProductCard from '../ProductCard';
@@ -9,26 +10,21 @@ import Slider from '../Slider';
 
 const ProductCardGrid = (props) => {
   const [showQuickView, setShowQuickView] = useState(false);
-  const [quickViewProduct, setQuickViewProduct] = useState(null);
-  const { height, columns = 3, data, spacing, showSlider = false } = props;
+  const [quickViewProductId, setQuickViewProductId] = useState(null);
+  const { height, columns = 3, spacing, showSlider = false } = props;
   const columnCount = {
     gridTemplateColumns: `repeat(${columns}, 1fr)`,
   };
 
+  const { inventory } = useInventory();
+
   const renderCards = () => {
-    return data.map((product) => {
+    return Object.values(inventory).map((product) => {
       return (
         <ProductCard
-          id={product.id}
+          product_id={product.id}
           height={height}
-          price={product.price}
-          imageAlt={product.alt}
-          name={product.name}
-          image={product.image}
-          meta={product.meta}
-          originalPrice={product.originalPrice}
-          link={product.link}
-          showQuickView={() => { setQuickViewProduct(product); setShowQuickView(true); }}
+          showQuickView={() => { setQuickViewProductId(product.id); setShowQuickView(true); }}
         />
       );
     });
@@ -42,17 +38,17 @@ const ProductCardGrid = (props) => {
         }`}
         style={columnCount}
       >
-        {data && renderCards()}
+        {inventory && renderCards()}
       </div>
 
       {showSlider === true && (
         <div className={styles.mobileSlider}>
-          <Slider spacing={spacing}>{data && renderCards()}</Slider>
+          <Slider spacing={spacing}>{inventory && renderCards()}</Slider>
         </div>
       )}
 
       <Drawer visible={showQuickView} close={() => setShowQuickView(false)}>
-        <QuickView product={quickViewProduct} close={() => setShowQuickView(false)} />
+        <QuickView product_id={quickViewProductId} close={() => setShowQuickView(false)} />
       </Drawer>
     </div>
   );

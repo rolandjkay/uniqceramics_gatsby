@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useShoppingCart } from 'use-shopping-cart';
+import { useInventory } from '../InventoryProvider/InventoryProvider';
 
 import AdjustItem from '../AdjustItem';
 import CurrencyFormatter from '../CurrencyFormatter';
@@ -16,8 +17,10 @@ const CartItem = (props) => {
 
   const [showQuickView, setShowQuickView] = useState(false);
   const { cartDetails } = useShoppingCart(); 
+  const { inventory } = useInventory();
 
   const cart_detail = cartDetails[cart_id] ;
+  const product = inventory[cart_detail.product_id];
 
 
   return (
@@ -27,10 +30,10 @@ const CartItem = (props) => {
         role={'presentation'}
         onClick={() => navigate('/product/sample')}
       >
-        <img src={toOptimizedImage(cart_detail.image)} alt={cart_detail.alt}></img>
+        <img src={toOptimizedImage(product.default_image)} alt={product.name}></img>
       </div>
       <div className={styles.itemContainer}>
-        <span className={styles.name}>{cart_detail.name}</span>
+        <span className={styles.name}>{product.name}</span>
         {/*<div className={styles.metaContainer}>
           <span>Color: {color}</span>
           <span>Size: {size}</span>
@@ -47,7 +50,7 @@ const CartItem = (props) => {
         <AdjustItem cart_id={cart_id} />
       </div>
       <div className={styles.priceContainer}>
-        <CurrencyFormatter amount={cart_detail.price} appendZero />
+        <CurrencyFormatter amount={product.default_price/100} appendZero />
       </div>
       <div className={styles.removeContainer}>
         <RemoveItem cart_id={cart_id}/> 

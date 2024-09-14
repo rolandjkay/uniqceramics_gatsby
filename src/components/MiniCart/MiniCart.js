@@ -1,6 +1,7 @@
 import { Link, navigate } from 'gatsby';
 import React from 'react';
 import { useShoppingCart } from 'use-shopping-cart';
+import { useInventory } from '../InventoryProvider/InventoryProvider';
 
 import Button from '../Button';
 import CurrencyFormatter from '../CurrencyFormatter';
@@ -20,26 +21,15 @@ const MiniCart = (props) => {
   /*
    * cartDetails is a map from id to object like below
    * {
-   *     "id": "prod_QpcJYTziksfEwe",
-   *     "price": 500,
-   *     "alt": "Contemporary Vase",
-   *     "name": "Contemporary Vase",
-   *     "image": "https://files.stripe.com/links/MDB8YWNjdF8xUHh3bU8wOXd6YmpVYjN0fGZsX3Rlc3RfTTRTTzhrYmxRNUlMcDlXOWh2OUM2Szgx00n833iUNK",
-   *     "meta": "A gorgeously beautiful contemporary vase available is a variety of shades of blue.",
-   *     "currency": "GBP",
+   *     "product_id": "prod_QpcJYTziksfEwe",
    *     "quantity": 1,
-   *     "value": 500,
-   *     "timestamp": "2024-09-12T17:22:25.112Z",
-   *     "price_data": {},
-   *     "product_data": {},
-   *     "formattedValue": "US$5.00",
-   *     "formattedPrice": "US$5.00"
    * }
    */
 
   // Calculate total
+  const { inventory } = useInventory();
   const total = Object.values(cartDetails).reduce((accumulator, detail) => {
-    return accumulator + (detail.quantity * detail.price);
+    return accumulator + (detail.quantity * inventory[detail.product_id].default_price);
   }, 0);
 
   return (
@@ -57,7 +47,7 @@ const MiniCart = (props) => {
           <div className={styles.totalContainer}>
             <span>Total (GBP)</span>
             <span>
-              <CurrencyFormatter amount={total} appendZero />
+              <CurrencyFormatter amount={total/100} appendZero />
             </span>
           </div>
           <span className={styles.taxNotes}>

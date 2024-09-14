@@ -4,6 +4,7 @@ import { useShoppingCart } from 'use-shopping-cart';
 import getStripe from '../../helpers/stripejs';
 
 import * as styles from '../Button/Button.module.css';
+import { useInventory } from '../InventoryProvider/InventoryProvider';
 
 const CheckoutButton = ({
     children,
@@ -49,14 +50,15 @@ const CheckoutButton = ({
   const classOutput = classes.join(' ');
 
   const { cartDetails } = useShoppingCart();
+  const { inventory } = useInventory();
 
   const handleCheckout = async () => {
     const stripe = await getStripe();
 
     // Convert cart details to an array of items with predefined Price IDs
     const lineItems = Object.values(cartDetails).map((item) => ({
-    price: item.priceId,  // This is the pre-configured Price ID from Stripe
-    quantity: item.quantity,
+      price: inventory[item.product_id].default_price_id,  // This is the pre-configured Price ID from Stripe
+      quantity: item.quantity,
     }));
 
     // Redirect to Stripe Checkout
