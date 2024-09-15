@@ -8,7 +8,14 @@ import { graphql, useStaticQuery } from "gatsby"
 const Context = createContext();
 
 export const useInventory = () => {
-    return useContext(Context);
+  // When comiling, context can be empty, which means that components
+  // trying to destruct to retrieve an "inventory" field will fail.
+  const x = useContext(Context);
+  if (x) {
+    return x;
+  } else {
+    return {inventory: {}}
+  }
 }
 
 /*
