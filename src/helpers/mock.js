@@ -1,4 +1,5 @@
 import productJson from './product.json';
+import productImagesJson from './product_images.json';
 import blogJson from './blog.json';
 /**
 
@@ -13,4 +14,10 @@ function generateMockBlogData(count) {
   return blogJson.slice(0, count);
 }
 
-export { generateMockProductData, generateMockBlogData };
+function fetchProductImages(productId) {
+  const products = productImagesJson;
+  const filtered = products.filter((item) => item.productId === productId);
+  return filtered;
+}
+
+export { generateMockProductData, generateMockBlogData, fetchProductImages };

@@ -1,0 +1,56 @@
+[
+    {
+        "productId": "default",
+        "gallery": [
+            {"image": "/products/default/1.jpg", "alt": "Image coming soon"},
+            {"image": "/products/default/2.jpg", "alt": "Image coming soon"},
+            {"image": "/products/default/3.jpg", "alt": "Image coming soon"},
+            {"image": "/products/default/4.jpg", "alt": "Image coming soon"}
+        ]
+    },
+    {
+        "productId": "prod_Qr0H9yGkFhNLii",
+        "gallery": [
+            {"image": "/products/prod_Qr0H9yGkFhNLii/1.jpg", "alt": "Tree Sculpture 1"},
+            {"image": "/products/prod_Qr0H9yGkFhNLii/2.jpg", "alt": "Tree Sculpture 2"},
+            {"image": "/products/prod_Qr0H9yGkFhNLii/3.jpg", "alt": "Tree Sculpture 3"},
+            {"image": "/products/prod_Qr0H9yGkFhNLii/4.jpg", "alt": "Tree Sculpture 4"}
+        ]
+    },
+    {
+        "productId": "prod_QpcNfpTPluKoG4",
+        "gallery": [
+            {"image": "/products/prod_QpcNfpTPluKoG4/1.jpg", "alt": "Set of Dimpled Plates 1"},
+            {"image": "/products/prod_QpcNfpTPluKoG4/2.jpg", "alt": "Set of Dimpled Plates 2"},
+            {"image": "/products/prod_QpcNfpTPluKoG4/3.jpg", "alt": "Set of Dimpled Plates 3"},
+            {"image": "/products/prod_QpcNfpTPluKoG4/4.jpg", "alt": "Set of Dimpled Plates 4"}
+        ]
+    },
+    {
+        "productId": "prod_QpcM5pCnaHqxUs",
+        "gallery": [
+            {"image": "/products/prod_QpcM5pCnaHqxUs/1.jpg", "alt": "Korean File Pot 1"},
+            {"image": "/products/prod_QpcM5pCnaHqxUs/2.jpg", "alt": "Korean File Pot 2"},
+            {"image": "/products/prod_QpcM5pCnaHqxUs/3.jpg", "alt": "Korean File Pot 3"},
+            {"image": "/products/prod_QpcM5pCnaHqxUs/4.jpg", "alt": "Korean File Pot 4"}
+        ]
+    },
+    {
+        "productId": "prod_QpcKrfJM44zfh3",
+        "gallery": [
+            {"image": "/products/prod_QpcKrfJM44zfh3/1.jpg", "alt": "Hand-carved Porcelain Vase 1"},
+            {"image": "/products/prod_QpcKrfJM44zfh3/2.jpg", "alt": "Hand-carved Porcelain Vase 2"},
+            {"image": "/products/prod_QpcKrfJM44zfh3/3.jpg", "alt": "Hand-carved Porcelain Vase 3"},
+            {"image": "/products/prod_QpcKrfJM44zfh3/4.jpg", "alt": "Hand-carved Porcelain Vase 4"}
+        ]
+    },
+    {
+        "productId": "prod_QpcJYTziksfEwe",
+        "gallery": [
+            {"image": "/products/prod_QpcJYTziksfEwe/1.jpg", "alt": "Contemporary Vase 1"},
+            {"image": "/products/prod_QpcJYTziksfEwe/2.jpg", "alt": "Contemporary Vase 2"},
+            {"image": "/products/prod_QpcJYTziksfEwe/3.jpg", "alt": "Contemporary Vase 3"},
+            {"image": "/products/prod_QpcJYTziksfEwe/4.jpg", "alt": "Contemporary Vase 4"}
+        ]
+    }
+  ]

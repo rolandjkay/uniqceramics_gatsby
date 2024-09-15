@@ -1,4 +1,6 @@
 import React, { useState, useContext } from 'react';
+import { useLocation } from '@reach/router';
+import { useInventory } from '../../context/InventoryProvider';
 import * as styles from './sample.module.css';
 
 import Accordion from '../../components/Accordion';
@@ -13,7 +15,7 @@ import Split from '../../components/Split';
 import SwatchList from '../../components/SwatchList';
 import Layout from '../../components/Layout/Layout';
 
-import { generateMockProductData } from '../../helpers/mock';
+import { fetchProductImages, generateMockProductData } from '../../helpers/mock';
 import Icon from '../../components/Icons/Icon';
 import ProductCardGrid from '../../components/ProductCardGrid';
 import { navigate } from 'gatsby';
@@ -23,14 +25,26 @@ import AddItemNotificationContext from '../../context/AddItemNotificationProvide
 const ProductPage = (props) => {
   const ctxAddItemNotification = useContext(AddItemNotificationContext);
   const showNotification = ctxAddItemNotification.showNotification;
-  const sampleProduct = generateMockProductData(1, 'sample')[0];
-  const [qty, setQty] = useState(0);
+  //const sampleProduct = generateMockProductData(1, 'sample')[0];
+  //const [qty, setQty] = useState(1);
   const [isWishlist, setIsWishlist] = useState(false);
-  const [activeSwatch, setActiveSwatch] = useState(
-    sampleProduct.colorOptions[0]
-  );
-  const [activeSize, setActiveSize] = useState(sampleProduct.sizeOptions[0]);
+  //const [activeSwatch, setActiveSwatch] = useState(
+  //  sampleProduct.colorOptions[0]
+  //);
+  //const [activeSize, setActiveSize] = useState(sampleProduct.sizeOptions[0]);
   const suggestions = generateMockProductData(4, 'woman');
+
+  // Get the current location object
+  const location = useLocation();
+
+  // Create an instance of URLSearchParams with the query string
+  const queryParams = new URLSearchParams(location.search);
+
+  const productId = queryParams.get("productId");
+
+  const productImages = fetchProductImages(productId ? productId : "default", 'sample')[0];
+  
+  const { inventory } = useInventory();
 
   return (
     <Layout>
@@ -41,21 +55,21 @@ const ProductPage = (props) => {
               { link: '/', label: 'Home' },
               { label: 'Men', link: '/shop' },
               { label: 'Sweater', link: '/shop' },
-              { label: `${sampleProduct.name}` },
+              { label: inventory[productId]?.name ?? "Item" },
             ]}
           />
           <div className={styles.content}>
             <div className={styles.gallery}>
-              <Gallery images={sampleProduct.gallery} />
+              <Gallery images={productImages.gallery} />
             </div>
             <div className={styles.details}>
-              <h1>{sampleProduct.name}</h1>
-              <span className={styles.vendor}> by {sampleProduct.vendor}</span>
+              <h1>{inventory[productId]?.name ?? "Item"}</h1>
 
               <div className={styles.priceContainer}>
-                <CurrencyFormatter appendZero amount={sampleProduct.price} />
+                <CurrencyFormatter appendZero amount={inventory[productId]?.default_price/100 ?? "-1"} />
               </div>
 
+              {/*
               <div>
                 <SwatchList
                   swatchList={sampleProduct.colorOptions}
@@ -71,11 +85,14 @@ const ProductPage = (props) => {
                   setActiveSize={setActiveSize}
                 />
               </div>
+              */}
 
+              {/*
               <div className={styles.quantityContainer}>
                 <span>Quantity</span>
                 <AdjustItem qty={qty} setQty={setQty} />
               </div>
+              */}
 
               <div className={styles.actionContainer}>
                 <div className={styles.addToButtonContainer}>
@@ -87,6 +104,7 @@ const ProductPage = (props) => {
                     Add to Bag
                   </Button>
                 </div>
+                {/*
                 <div
                   className={styles.wishlistActionContainer}
                   role={'presentation'}
@@ -101,13 +119,14 @@ const ProductPage = (props) => {
                     <Icon symbol={'heartFill'}></Icon>
                   </div>
                 </div>
+                */}
               </div>
 
               <div className={styles.description}>
-                <p>{sampleProduct.description}</p>
-                <span>Product code: {sampleProduct.productCode}</span>
+                <p>{inventory[productId]?.description ?? "Description coming soon"}</p>
               </div>
 
+              {/*
               <div className={styles.informationContainer}>
                 <Accordion
                   type={'plus'}
@@ -115,7 +134,7 @@ const ProductPage = (props) => {
                   title={'composition & care'}
                 >
                   <p className={styles.information}>
-                    {sampleProduct.description}
+                    sampleProduct.description
                   </p>
                 </Accordion>
                 <Accordion
@@ -124,15 +143,16 @@ const ProductPage = (props) => {
                   title={'delivery & returns'}
                 >
                   <p className={styles.information}>
-                    {sampleProduct.description}
+                    sampleProduct.description
                   </p>
                 </Accordion>
                 <Accordion type={'plus'} customStyle={styles} title={'help'}>
                   <p className={styles.information}>
-                    {sampleProduct.description}
+                    sampleProduct.description
                   </p>
                 </Accordion>
               </div>
+              */}
             </div>
           </div>
           <div className={styles.suggestionContainer}>

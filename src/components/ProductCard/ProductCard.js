@@ -17,7 +17,7 @@ const ProductCard = (props) => {
   const originalPrice = null;
 
   const handleRouteToProduct = () => {
-    navigate('/product/sample');
+    navigate(`/product/sample?productId=${product_id}`);
   };
 
   const handleQuickView = (e) => {
