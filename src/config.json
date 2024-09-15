@@ -54,10 +54,6 @@
         {
           "text": "Shipping & Returns",
           "link": "/support#returns"
-        },
-        {
-          "text": "How to use this theme",
-          "link": "/how-to-use"
         }
       ]
     }
@@ -68,60 +64,40 @@
       "menuLink": "/shop",
       "category": [
         {
-          "categoryLabel": "woman",
+          "categoryLabel": "tablewear",
           "submenu": [
             {
-              "menuLabel": "All clothing",
+              "menuLabel": "plates",
               "menuLink": "/shop"
             },
             {
-              "menuLabel": "sweatshirts & hoodies",
-              "menuLink": "/shop"
-            },
-            {
-              "menuLabel": "jackets",
-              "menuLink": "/shop"
-            },
-            {
-              "menuLabel": "trousers",
+              "menuLabel": "cups and mugs",
               "menuLink": "/shop"
             }
           ]
         },
         {
-          "categoryLabel": "men",
+          "categoryLabel": "vases",
           "submenu": [
             {
-              "menuLabel": "All clothing",
+              "menuLabel": "decorative",
               "menuLink": "/shop"
             },
             {
-              "menuLabel": "sweatshirts & hoodies",
-              "menuLink": "/shop"
-            },
-            {
-              "menuLabel": "jackets",
-              "menuLink": "/shop"
-            },
-            {
-              "menuLabel": "trousers",
-              "menuLink": "/shop"
-            },
-            {
-              "menuLabel": "pants",
+              "menuLabel": "functional",
               "menuLink": "/shop"
             }
           ]
         },
         {
-          "categoryLabel": "accessories",
+          "categoryLabel": "sculpture",
           "submenu": [
             {
-              "menuLabel": "caps & scarves",
+              "menuLabel": "functional",
               "menuLink": "/shop"
             },
             {
-              "menuLabel": "bags",
+              "menuLabel": "artists",
               "menuLink": "/shop"
             }
           ]

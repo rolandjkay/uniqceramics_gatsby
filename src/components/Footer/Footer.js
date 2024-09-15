@@ -132,6 +132,8 @@ const Footer = (prop) => {
           </div>
         </div>
       </Container>
+      
+      {/*
       <div className={styles.contentBottomContainer}>
         <Container size={'large'} spacing={'min'}>
           <div className={styles.contentBottom}>
@@ -180,6 +182,7 @@ const Footer = (prop) => {
           </div>
         </Container>
       </div>
+      */}
     </div>
   );
 };
