@@ -32,9 +32,17 @@ const QuickView = (props) => {
   );
   const [activeSize, setActiveSize] = useState(sizeOptions[0]);
 
-  const { addItem } = useShoppingCart();
+  const { addItem, cartDetails, incrementItem } = useShoppingCart();
   const handleAddToBag = () => {
-    addItem({product_id: product_id, currency: "GBP"});
+    const item = Object.values(cartDetails).find((i) => i.product_id == product_id);
+
+    console.log("ADDTOCART", item)
+  
+    if (item) {
+      incrementItem(item.id);
+    } else {
+      addItem({product_id: product_id, currency: "GBP"});
+    }
     close();
     showNotification();
   };

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createRef } from 'react';
 import { Link, navigate } from 'gatsby';
+import { useShoppingCart } from 'use-shopping-cart';
 
 import { isAuth } from '../../helpers/general';
 
@@ -33,6 +34,8 @@ const Header = (prop) => {
     'Lama Pajamas',
     'Candles Cinnamon',
   ];
+
+  const { cartDetails } = useShoppingCart();
 
   const handleHover = (navObject) => {
     if (navObject.category) {
@@ -128,6 +131,7 @@ const Header = (prop) => {
             >
               <Icon symbol={'search'}></Icon>
             </button>
+            {/*
             <Link
               aria-label="Favorites"
               href="/account/favorites"
@@ -142,6 +146,7 @@ const Header = (prop) => {
             >
               <Icon symbol={'user'}></Icon>
             </Link>
+            */}
             <button
               aria-label="Cart"
               className={`${styles.iconButton} ${styles.iconContainer} ${styles.bagIconContainer}`}
@@ -152,7 +157,12 @@ const Header = (prop) => {
             >
               <Icon symbol={'bag'}></Icon>
               <div className={styles.bagNotification}>
-                <span>1</span>
+                <span>
+                  {
+                    /* Count the number of items in the cart. */
+                    Object.keys(cartDetails).length
+                  }
+                </span>
               </div>
             </button>
             <div className={styles.notificationContainer}>
