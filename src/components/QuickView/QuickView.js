@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useShoppingCart } from 'use-shopping-cart';
-import { useInventory } from '../InventoryProvider/InventoryProvider';
+import { useInventory } from '../../context/InventoryProvider';
 
 import Button from '../Button';
 import CurrencyFormatter from '../CurrencyFormatter';

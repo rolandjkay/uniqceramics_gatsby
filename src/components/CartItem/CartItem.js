@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useShoppingCart } from 'use-shopping-cart';
-import { useInventory } from '../InventoryProvider/InventoryProvider';
+import { useInventory } from '../../context/InventoryProvider';
 
 import AdjustItem from '../AdjustItem';
 import CurrencyFormatter from '../CurrencyFormatter';

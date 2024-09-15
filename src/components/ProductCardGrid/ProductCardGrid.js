@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import * as styles from './ProductCardGrid.module.css';
-import { useInventory } from '../InventoryProvider/InventoryProvider';
+import { useInventory } from '../../context/InventoryProvider';
 
 import Drawer from '../Drawer';
 import ProductCard from '../ProductCard';

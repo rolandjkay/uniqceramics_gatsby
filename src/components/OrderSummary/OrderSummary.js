@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, navigate } from 'gatsby';
 
 import { useShoppingCart } from 'use-shopping-cart';
-import { useInventory } from '../InventoryProvider/InventoryProvider';
+import { useInventory } from '../../context/InventoryProvider';
 
 import getStripe from '../../helpers/stripejs';
 import Button from '../Button';

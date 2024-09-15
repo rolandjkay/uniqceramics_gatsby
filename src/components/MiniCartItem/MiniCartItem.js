@@ -1,6 +1,6 @@
 import React from 'react';
 import { useShoppingCart } from 'use-shopping-cart';
-import { useInventory } from '../InventoryProvider/InventoryProvider';
+import { useInventory } from '../../context/InventoryProvider';
 
 import { navigate } from 'gatsby';
 import AdjustItem from '../AdjustItem';

@@ -5,7 +5,7 @@ import * as styles from './ProductCard.module.css';
 import Icon from '../Icons/Icon';
 import CurrencyFormatter from '../CurrencyFormatter';
 import { toOptimizedImage } from '../../helpers/general';
-import { useInventory } from '../InventoryProvider/InventoryProvider';
+import { useInventory } from '../../context/InventoryProvider';
 
 
 const ProductCard = (props) => {

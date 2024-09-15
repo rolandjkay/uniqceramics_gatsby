@@ -4,7 +4,7 @@ import { useShoppingCart } from 'use-shopping-cart';
 import getStripe from '../../helpers/stripejs';
 
 import * as styles from '../Button/Button.module.css';
-import { useInventory } from '../InventoryProvider/InventoryProvider';
+import { useInventory } from '../../context/InventoryProvider';
 
 const CheckoutButton = ({
     children,
