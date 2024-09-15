@@ -29,7 +29,7 @@ const MiniCart = (props) => {
   // Calculate total
   const { inventory } = useInventory();
   const total = Object.values(cartDetails).reduce((accumulator, detail) => {
-    return accumulator + (detail.quantity * inventory[detail.product_id].default_price);
+    return accumulator + detail.quantity * (inventory[detail.product_id]?.default_price ?? 0);
   }, 0);
 
   return (
