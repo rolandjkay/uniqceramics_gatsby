@@ -60,6 +60,11 @@
   ],
   "headerLinks": [
     {
+      "menuLabel": "Home",
+      "menuLink": "/",
+      "category": null
+    },
+    {
       "menuLabel": "Shop",
       "menuLink": "/shop",
       "category": [
