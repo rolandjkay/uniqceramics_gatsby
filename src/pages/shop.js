@@ -5,6 +5,7 @@ import * as styles from './shop.module.css';
 
 import Banner from '../components/Banner';
 import Breadcrumbs from '../components/Breadcrumbs';
+import BreadcrumbProvider from '../context/BreadcrumbProvider';
 import CardController from '../components/CardController';
 import Container from '../components/Container';
 import Chip from '../components/Chip';
@@ -28,74 +29,78 @@ const ShopPage = (props) => {
     if (e.keyCode === 27) setShowFilter(false);
   };
 
+  const crumbs = [
+    { link: '/', label: 'Home' },
+    { link: '/shop', label: 'Tableware' },
+    { label: 'Plates' },
+  ];
+
   return (
     <Layout>
-      <div className={styles.root}>
-        <Container size={'large'} spacing={'min'}>
-          <div className={styles.breadcrumbContainer}>
-            <Breadcrumbs
-              crumbs={[
-                { link: '/', label: 'Home' },
-                { link: '/', label: 'Tableware' },
-                { label: 'Plates' },
-              ]}
-            />
-          </div>
-        </Container>
-        <Banner
-          maxWidth={'650px'}
-          name={`Tablewear`}
-          subtitle={
-            'A variety of tableware suitable for all occations, big and small.'
-          }
-        />
-        <Container size={'large'} spacing={'min'}>
-          <div className={styles.metaContainer}>
-            {/*
-            <span className={styles.itemCount}>476 items</span>
-            <div className={styles.controllerContainer}>
-              <div
-                className={styles.iconContainer}
-                role={'presentation'}
-                onClick={() => setShowFilter(!showFilter)}
-              >
-                <Icon symbol={'filter'} />
-                <span>Filters</span>
-              </div>
-              <div
-                className={`${styles.iconContainer} ${styles.sortContainer}`}
-              >
-                <span>Sort by</span>
-                <Icon symbol={'caret'} />
-              </div>
+      <BreadcrumbProvider crumbs={crumbs}>
+        <div className={styles.root}>
+          <Container size={'large'} spacing={'min'}>
+            <div className={styles.breadcrumbContainer}>
+              <Breadcrumbs
+                crumbs={crumbs}
+              />
             </div>
-           */}
-          </div>
-          {/*
-          <CardController
-            closeFilter={() => setShowFilter(false)}
-            visible={showFilter}
-            filters={Config.filters}
+          </Container>
+          <Banner
+            maxWidth={'650px'}
+            name={`Tablewear`}
+            subtitle={
+              'A variety of tableware suitable for all occations, big and small.'
+            }
           />
-          <div className={styles.chipsContainer}>
-            <Chip name={'XS'} />
-            <Chip name={'S'} />
-          </div>
-          */}
-          <div className={styles.productContainer}>
-            <span className={styles.mobileItemCount}>476 items</span>
-            <ProductCardGrid></ProductCardGrid>
-          </div>
-          {/*
-          <div className={styles.loadMoreContainer}>
-            <span>6 of 456</span>
-            <Button fullWidth level={'secondary'}>
-              LOAD MORE
-            </Button>
-          </div>
-          */}
-        </Container>
-      </div>
+          <Container size={'large'} spacing={'min'}>
+            <div className={styles.metaContainer}>
+              {/*
+              <span className={styles.itemCount}>476 items</span>
+              <div className={styles.controllerContainer}>
+                <div
+                  className={styles.iconContainer}
+                  role={'presentation'}
+                  onClick={() => setShowFilter(!showFilter)}
+                >
+                  <Icon symbol={'filter'} />
+                  <span>Filters</span>
+                </div>
+                <div
+                  className={`${styles.iconContainer} ${styles.sortContainer}`}
+                >
+                  <span>Sort by</span>
+                  <Icon symbol={'caret'} />
+                </div>
+              </div>
+            */}
+            </div>
+            {/*
+            <CardController
+              closeFilter={() => setShowFilter(false)}
+              visible={showFilter}
+              filters={Config.filters}
+            />
+            <div className={styles.chipsContainer}>
+              <Chip name={'XS'} />
+              <Chip name={'S'} />
+            </div>
+            */}
+            <div className={styles.productContainer}>
+              <span className={styles.mobileItemCount}>476 items</span>
+              <ProductCardGrid></ProductCardGrid>
+            </div>
+            {/*
+            <div className={styles.loadMoreContainer}>
+              <span>6 of 456</span>
+              <Button fullWidth level={'secondary'}>
+                LOAD MORE
+              </Button>
+            </div>
+            */}
+          </Container>
+        </div>
+      </BreadcrumbProvider>
 
       {/*<LayoutOption />*/}
     </Layout>

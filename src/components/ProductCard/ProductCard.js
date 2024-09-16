@@ -6,18 +6,20 @@ import Icon from '../Icons/Icon';
 import CurrencyFormatter from '../CurrencyFormatter';
 import { toOptimizedImage } from '../../helpers/general';
 import { useInventory } from '../../context/InventoryProvider';
+import { useCrumbs, crumbsToQueryString } from '../../context/BreadcrumbProvider';
 
 
 const ProductCard = (props) => {
   const [isWishlist, setIsWishlist] = useState(false);
   const { product_id, showQuickView, height = 580 } = props;
   const { inventory } = useInventory();
+  const { crumbs } = useCrumbs();
 
   /* Originally in the template, but we don't support sales yet. */
   const originalPrice = null;
 
   const handleRouteToProduct = () => {
-    navigate(`/product/sample?productId=${product_id}`);
+    navigate(`/product/sample?productId=${product_id}&${crumbsToQueryString(crumbs)}`);
   };
 
   const handleQuickView = (e) => {

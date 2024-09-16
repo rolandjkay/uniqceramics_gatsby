@@ -21,10 +21,13 @@ import ProductCardGrid from '../../components/ProductCardGrid';
 import { navigate } from 'gatsby';
 
 import AddItemNotificationContext from '../../context/AddItemNotificationProvider';
+import { useCrumbs, queryStringToCrumbs } from '../../context/BreadcrumbProvider';
 
 const ProductPage = (props) => {
   const ctxAddItemNotification = useContext(AddItemNotificationContext);
+  const { inventory } = useInventory();
   const showNotification = ctxAddItemNotification.showNotification;
+
   //const sampleProduct = generateMockProductData(1, 'sample')[0];
   //const [qty, setQty] = useState(1);
   const [isWishlist, setIsWishlist] = useState(false);
@@ -41,23 +44,23 @@ const ProductPage = (props) => {
   const queryParams = new URLSearchParams(location.search);
 
   const productId = queryParams.get("productId");
+  const crumbs = queryStringToCrumbs(location.search);
+
+  if (crumbs.length > 1) {
+    crumbs[crumbs.length - 1].link = "/shop";
+    crumbs.push({label: inventory[productId].name});
+  }
+
+  console.log("CRUMBS", crumbs);
 
   const productImages = fetchProductImages(productId ? productId : "default", 'sample')[0];
   
-  const { inventory } = useInventory();
 
   return (
     <Layout>
       <div className={styles.root}>
         <Container size={'large'} spacing={'min'}>
-          <Breadcrumbs
-            crumbs={[
-              { link: '/', label: 'Home' },
-              { label: 'Men', link: '/shop' },
-              { label: 'Sweater', link: '/shop' },
-              { label: inventory[productId]?.name ?? "Item" },
-            ]}
-          />
+          <Breadcrumbs crumbs={crumbs} />
           <div className={styles.content}>
             <div className={styles.gallery}>
               <Gallery images={productImages.gallery} />
