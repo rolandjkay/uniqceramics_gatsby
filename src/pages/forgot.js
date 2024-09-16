@@ -50,9 +50,13 @@ const ForgotPage = (props) => {
           </div>
         </form>
       </div>
+      {/*
       <div className={styles.gridContainer}>
         <AttributeGrid />
-      </div>
+      </div
+      */}
+      <div><p></p></div> {/* Extra space because we removed AttribueGrib */}
+
     </Layout>
   );
 };

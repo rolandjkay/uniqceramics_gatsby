@@ -40,6 +40,7 @@ const IndexPage = () => {
       />
 
       {/* Message Container */}
+      {/*
       <div className={styles.messageContainer}>
         <p>
           This is a demonstration of the Sydney theme for verse by{' '}
@@ -49,7 +50,7 @@ const IndexPage = () => {
           wear by <span className={styles.gold}>sunspel</span> and{' '}
           <span className={styles.gold}>scotch&soda</span>
         </p>
-      </div>
+      </div> */}
 
       {/* Collection Container */}
       <div className={styles.collectionContainer}>
@@ -116,6 +117,7 @@ const IndexPage = () => {
       </div>
 
       {/* Promotion */}
+      {/*}
       <div className={styles.sustainableContainer}>
         <Hero
           image={toOptimizedImage('/banner3.png')}
@@ -128,8 +130,10 @@ const IndexPage = () => {
           ctaStyle={styles.ctaCustomButton}
         />
       </div>
+      */}
 
       {/* Social Media */}
+      {/*}
       <div className={styles.socialContainer}>
         <Title
           name={'Styled by You'}
@@ -143,6 +147,9 @@ const IndexPage = () => {
         </div>
       </div>
       <AttributeGrid />
+      */}
+      <div><p></p></div> {/* Extra space because we removed AttribueGrib */}
+
     </Layout>
   );
 };
