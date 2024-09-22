@@ -52,5 +52,14 @@
             {"image": "/products/prod_QpcJYTziksfEwe/3.jpg", "alt": "Contemporary Vase 3"},
             {"image": "/products/prod_QpcJYTziksfEwe/4.jpg", "alt": "Contemporary Vase 4"}
         ]
+    },
+    {
+        "productId": "prod_QtidRMVxkVbmqJ",
+        "gallery": [
+            {"image": "/products/prod_QtidRMVxkVbmqJ/1.jpg", "alt": "Earthstone Plate 1"},
+            {"image": "/products/prod_QtidRMVxkVbmqJ/2.jpg", "alt": "Earthstone Plate 2"},
+            {"image": "/products/prod_QtidRMVxkVbmqJ/3.jpg", "alt": "Earthstone Plate 3"},
+            {"image": "/products/prod_QtidRMVxkVbmqJ/4.jpg", "alt": "Earthstone Plate 4"}
+        ]
     }
   ]
