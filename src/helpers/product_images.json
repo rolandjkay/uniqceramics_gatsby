@@ -11,55 +11,119 @@
     {
         "productId": "prod_Qr0H9yGkFhNLii",
         "gallery": [
-            {"image": "/products/prod_Qr0H9yGkFhNLii/1.jpg", "alt": "Tree Sculpture 1"},
-            {"image": "/products/prod_Qr0H9yGkFhNLii/2.jpg", "alt": "Tree Sculpture 2"},
-            {"image": "/products/prod_Qr0H9yGkFhNLii/3.jpg", "alt": "Tree Sculpture 3"},
-            {"image": "/products/prod_Qr0H9yGkFhNLii/4.jpg", "alt": "Tree Sculpture 4"}
+            {"image": "/products/prod_Qr0H9yGkFhNLii/1.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_Qr0H9yGkFhNLii/2.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_Qr0H9yGkFhNLii/3.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_Qr0H9yGkFhNLii/4.jpg", "alt": "Product Image"}
         ]
     },
     {
         "productId": "prod_QpcNfpTPluKoG4",
         "gallery": [
-            {"image": "/products/prod_QpcNfpTPluKoG4/1.jpg", "alt": "Set of Dimpled Plates 1"},
-            {"image": "/products/prod_QpcNfpTPluKoG4/2.jpg", "alt": "Set of Dimpled Plates 2"},
-            {"image": "/products/prod_QpcNfpTPluKoG4/3.jpg", "alt": "Set of Dimpled Plates 3"},
-            {"image": "/products/prod_QpcNfpTPluKoG4/4.jpg", "alt": "Set of Dimpled Plates 4"}
+            {"image": "/products/prod_QpcNfpTPluKoG4/1.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_QpcNfpTPluKoG4/2.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_QpcNfpTPluKoG4/3.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_QpcNfpTPluKoG4/4.jpg", "alt": "Product Image"}
         ]
     },
     {
         "productId": "prod_QpcM5pCnaHqxUs",
         "gallery": [
-            {"image": "/products/prod_QpcM5pCnaHqxUs/1.jpg", "alt": "Korean File Pot 1"},
-            {"image": "/products/prod_QpcM5pCnaHqxUs/2.jpg", "alt": "Korean File Pot 2"},
-            {"image": "/products/prod_QpcM5pCnaHqxUs/3.jpg", "alt": "Korean File Pot 3"},
-            {"image": "/products/prod_QpcM5pCnaHqxUs/4.jpg", "alt": "Korean File Pot 4"}
+            {"image": "/products/prod_QpcM5pCnaHqxUs/1.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_QpcM5pCnaHqxUs/2.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_QpcM5pCnaHqxUs/3.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_QpcM5pCnaHqxUs/4.jpg", "alt": "Product Image"}
         ]
     },
     {
         "productId": "prod_QpcKrfJM44zfh3",
         "gallery": [
-            {"image": "/products/prod_QpcKrfJM44zfh3/1.jpg", "alt": "Hand-carved Porcelain Vase 1"},
-            {"image": "/products/prod_QpcKrfJM44zfh3/2.jpg", "alt": "Hand-carved Porcelain Vase 2"},
-            {"image": "/products/prod_QpcKrfJM44zfh3/3.jpg", "alt": "Hand-carved Porcelain Vase 3"},
-            {"image": "/products/prod_QpcKrfJM44zfh3/4.jpg", "alt": "Hand-carved Porcelain Vase 4"}
+            {"image": "/products/prod_QpcKrfJM44zfh3/1.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_QpcKrfJM44zfh3/2.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_QpcKrfJM44zfh3/3.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_QpcKrfJM44zfh3/4.jpg", "alt": "Product Image"}
         ]
     },
     {
         "productId": "prod_QpcJYTziksfEwe",
         "gallery": [
-            {"image": "/products/prod_QpcJYTziksfEwe/1.jpg", "alt": "Contemporary Vase 1"},
-            {"image": "/products/prod_QpcJYTziksfEwe/2.jpg", "alt": "Contemporary Vase 2"},
-            {"image": "/products/prod_QpcJYTziksfEwe/3.jpg", "alt": "Contemporary Vase 3"},
-            {"image": "/products/prod_QpcJYTziksfEwe/4.jpg", "alt": "Contemporary Vase 4"}
+            {"image": "/products/prod_QpcJYTziksfEwe/1.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_QpcJYTziksfEwe/2.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_QpcJYTziksfEwe/3.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_QpcJYTziksfEwe/4.jpg", "alt": "Product Image"}
         ]
     },
     {
         "productId": "prod_QtidRMVxkVbmqJ",
         "gallery": [
-            {"image": "/products/prod_QtidRMVxkVbmqJ/1.jpg", "alt": "Earthstone Plate 1"},
-            {"image": "/products/prod_QtidRMVxkVbmqJ/2.jpg", "alt": "Earthstone Plate 2"},
-            {"image": "/products/prod_QtidRMVxkVbmqJ/3.jpg", "alt": "Earthstone Plate 3"},
-            {"image": "/products/prod_QtidRMVxkVbmqJ/4.jpg", "alt": "Earthstone Plate 4"}
+            {"image": "/products/prod_QtidRMVxkVbmqJ/1.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_QtidRMVxkVbmqJ/2.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_QtidRMVxkVbmqJ/3.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_QtidRMVxkVbmqJ/4.jpg", "alt": "Product Image"}
+        ]
+    },
+
+    {
+        "productId": "prod_QtidRMVxkVbmqJ",
+        "gallery": [
+            {"image": "/products/prod_QtidRMVxkVbmqJ/1.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_QtidRMVxkVbmqJ/2.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_QtidRMVxkVbmqJ/3.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_QtidRMVxkVbmqJ/4.jpg", "alt": "Product Image"}
+        ]
+    },
+    {
+        "productId": "prod_Qv3ySNZ44NVMFN",
+        "gallery": [
+            {"image": "/products/prod_Qv3ySNZ44NVMFN/1.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_Qv3ySNZ44NVMFN/2.jpg", "alt": "SProduct Image"},
+            {"image": "/products/prod_Qv3ySNZ44NVMFN/3.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_Qv3ySNZ44NVMFN/4.jpg", "alt": "Product Image"}
+        ]
+    },
+    {
+        "productId": "prod_Qv7mc7fisVnuoW",
+        "gallery": [
+            {"image": "/products/prod_Qv7mc7fisVnuoW/1.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_Qv7mc7fisVnuoW/2.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_Qv7mc7fisVnuoW/3.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_Qv7mc7fisVnuoW/4.jpg", "alt": "Product Image"}
+        ]
+    },
+    {
+        "productId": "prod_Qv8PnV6KEYyROH",
+        "gallery": [
+            {"image": "/products/prod_Qv8PnV6KEYyROH/1.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_Qv8PnV6KEYyROH/2.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_Qv8PnV6KEYyROH/3.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_Qv8PnV6KEYyROH/4.jpg", "alt": "Product Image"}
+        ]
+    },
+    {
+        "productId": "prod_Qv9fL1tZBemoQB",
+        "gallery": [
+            {"image": "/products/prod_Qv9fL1tZBemoQB/1.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_Qv9fL1tZBemoQB/2.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_Qv9fL1tZBemoQB/3.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_Qv9fL1tZBemoQB/4.jpg", "alt": "Product Image"}
+        ]
+    },
+    {
+        "productId": "prod_QvDp1a3ybjVXWY",
+        "gallery": [
+            {"image": "/products/prod_QvDp1a3ybjVXWY/1.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_QvDp1a3ybjVXWY/2.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_QvDp1a3ybjVXWY/3.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_QvDp1a3ybjVXWY/4.jpg", "alt": "Product Image"}
+        ]
+    },
+    {
+        "productId": "prod_QvECy3vP3Ovmv0",
+        "gallery": [
+            {"image": "/products/prod_QvECy3vP3Ovmv0/1.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_QvECy3vP3Ovmv0/2.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_QvECy3vP3Ovmv0/3.jpg", "alt": "Product Image"},
+            {"image": "/products/prod_QvECy3vP3Ovmv0/4.jpg", "alt": "Product Image"}
         ]
     }
   ]
