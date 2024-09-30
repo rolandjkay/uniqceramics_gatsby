@@ -16,8 +16,14 @@ function generateMockBlogData(count) {
 
 function fetchProductImages(productId) {
   const products = productImagesJson;
+
   const filtered = products.filter((item) => item.productId === productId);
-  return filtered;
+
+  if (filtered.length > 0) {
+    return filtered[0];
+  } else {
+    return null;
+  }
 }
 
 export { generateMockProductData, generateMockBlogData, fetchProductImages };

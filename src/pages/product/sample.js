@@ -51,10 +51,12 @@ const ProductPage = (props) => {
     crumbs.push({label: inventory[productId].name});
   }
 
-  console.log("CRUMBS", crumbs);
+  var productImages = fetchProductImages(productId ? productId : "default");
 
-  const productImages = fetchProductImages(productId ? productId : "default", 'sample')[0];
-  
+  // If there were no images, substitute the default image.
+  if (!productImages) {
+    productImages = fetchProductImages("default");
+  }
 
   return (
     <Layout>

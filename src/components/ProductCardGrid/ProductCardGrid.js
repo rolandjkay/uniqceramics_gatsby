@@ -22,6 +22,7 @@ const ProductCardGrid = (props) => {
     return Object.values(inventory).map((product) => {
       return (
         <ProductCard
+          key={product.id}
           product_id={product.id}
           height={height}
           showQuickView={() => { setQuickViewProductId(product.id); setShowQuickView(true); }}
