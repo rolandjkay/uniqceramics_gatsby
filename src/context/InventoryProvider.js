@@ -59,9 +59,14 @@ const useStripeInventory = () => {
   `)
 
   // Assign the first category in config.json to any products that are missing a category.
-  const headerLinksData = Config.headerLinks.find(item => item.menuLabel === "Shop").category;
-  const defaultCategory = headerLinksData[0].stripeCategory;
-  const defaultSubCategory = headerLinksData[0].submenu[0].stripeSubcategory;
+  const headerLinksCategories = Config.headerLinks.find(item => item.menuLabel === "Shop").category;
+  const defaultCategory = headerLinksCategories[0].stripeCategory;
+  const defaultSubCategory = headerLinksCategories[0].submenu[0].stripeSubcategory;
+
+  // Wrapping this in a function, because we get a warning if I put it in the loop below.
+  function findHeaderLinksCategory(stripeCategory) {
+    return headerLinksCategories.find(item => item.stripeCategory === stripeCategory)
+  }
 
   // Group prices by product
   const products = {}
@@ -85,7 +90,17 @@ const useStripeInventory = () => {
     {
       product.metadata = {category: defaultCategory, subcategory: defaultSubCategory}
     } else if (!product.metadata.subcategory) {
-      product.subcategory = headerLinksData[0].submenu[0].stripeSubcategory;
+      // Try to get the category from the header links data
+      let headerLinksCategory = findHeaderLinksCategory(product.metadata.category);
+
+      if (headerLinksCategory) {
+        // If we found it, then set the product subcategory to the first subcategory.
+        product.metadata.subcategory = headerLinksCategory.submenu[0].stripeSubcategory;
+      } else {
+        // If not, (i.e. the Stripe db listed a category that doesn't exist), then just
+        // fallback to default category and subcategory.
+        product.metadata = {category: defaultCategory, subcategory: defaultSubCategory}
+      }
     }
   }
 
