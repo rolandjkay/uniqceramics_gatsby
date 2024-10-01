@@ -14,7 +14,9 @@ const ExpandedMenu = (props) => {
         {menu?.map((item, index) => {
           return (
             <div key={index} className={styles.categoryContainer}>
-              <span className={styles.categoryName}>{item.categoryLabel}</span>
+              <Link className={styles.menuLink} to={item.categoryLink}>
+                <span className={styles.categoryName}>{item.categoryLabel}</span>
+              </Link>
               <ul>
                 {item.submenu.map((link, linkIndex) => {
                   return (

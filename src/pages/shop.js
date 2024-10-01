@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { graphql, useStaticQuery } from "gatsby"
+import { useLocation } from '@reach/router';
 
 import * as styles from './shop.module.css';
 
@@ -29,11 +29,46 @@ const ShopPage = (props) => {
     if (e.keyCode === 27) setShowFilter(false);
   };
 
-  const crumbs = [
+
+  /*
+   * Parse out the category and subcategory,
+   */
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  let category = params.get("category") ?? "tablewear";
+  // Could be null, in which case, we display all Tablewear
+  let subcategory = params.get("subcategory"); 
+
+  let headerLinksData = Config.headerLinks.find(item => item.menuLabel === "Shop")
+                                          .category.find(item => item.stripeCategory === category);
+
+  // If someone edited the URL and passed a nonsense category, then default to "tablewear"
+  if (!headerLinksData) {
+    headerLinksData = Config.headerLinks.find(item => item.menuLabel === "Shop")
+                                        .category.find(item => item.stripeCategory === "tablewear");
+    category = "tablewear";
+  }
+  const categoryLabel = headerLinksData.categoryLabel;
+
+  let subcategoryLabel = null;
+  if (subcategory) {
+    const subCat = headerLinksData["submenu"].find(item => item.stripeSubcategory === subcategory);
+     
+    if (subCat) {
+      subcategoryLabel = subCat.menuLabel;
+    } else {
+      subcategory = null;
+    }
+  }
+
+  const crumbs = subcategory ? [
     { link: '/', label: 'Home' },
-    { link: '/shop', label: 'Tableware' },
-    { label: 'Plates' },
-  ];
+    { link: '/shop?category=' + category, label: headerLinksData.categoryLabel },
+    { label: subcategoryLabel },
+  ] : [
+    { link: '/', label: 'Home' },
+    { label: headerLinksData.categoryLabel  }
+  ]
 
   return (
     <Layout>
@@ -48,7 +83,7 @@ const ShopPage = (props) => {
           </Container>
           <Banner
             maxWidth={'650px'}
-            name={`Tablewear`}
+            name={categoryLabel}
             subtitle={
               'A variety of tableware suitable for all occations, big and small.'
             }
@@ -88,7 +123,7 @@ const ShopPage = (props) => {
             */}
             <div className={styles.productContainer}>
               <span className={styles.mobileItemCount}>476 items</span>
-              <ProductCardGrid></ProductCardGrid>
+              <ProductCardGrid category={category} subcategory={subcategory} />
             </div>
             {/*
             <div className={styles.loadMoreContainer}>

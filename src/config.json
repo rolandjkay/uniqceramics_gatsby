@@ -69,41 +69,53 @@
       "menuLink": "/shop",
       "category": [
         {
-          "categoryLabel": "tablewear",
+          "categoryLabel": "Tablewear",
+          "categoryLink": "/shop?category=tablewear",
+          "stripeCategory": "tablewear",
           "submenu": [
             {
-              "menuLabel": "plates",
-              "menuLink": "/shop"
+              "menuLabel": "Plates",
+              "stripeSubcategory": "plate",
+              "menuLink": "/shop?category=tablewear&subcategory=plate"
             },
             {
-              "menuLabel": "cups and mugs",
-              "menuLink": "/shop"
+              "menuLabel": "Cups and mugs",
+              "stripeSubcategory": "cup",
+              "menuLink": "/shop?category=tablewear&subcategory=cup"
             }
           ]
         },
         {
-          "categoryLabel": "vases",
+          "categoryLabel": "Vases",
+          "categoryLink": "/shop?category=vase",
+          "stripeCategory": "vase",
           "submenu": [
             {
-              "menuLabel": "decorative",
-              "menuLink": "/shop"
+              "stripeSubcategory": "decorative",
+              "menuLabel": "Decorative",
+              "menuLink": "/shop?category=vase&subcategory=decorative"
             },
             {
-              "menuLabel": "functional",
-              "menuLink": "/shop"
+              "stripeSubcategory": "functional",
+              "menuLabel": "Functional",
+              "menuLink": "/shop?category=vase&subcategory=functional"
             }
           ]
         },
         {
-          "categoryLabel": "sculpture",
+          "categoryLabel": "Sculpture",
+          "categoryLink": "/shop?category=sculpture",
+          "stripeCategory": "sculpture",
           "submenu": [
             {
-              "menuLabel": "functional",
-              "menuLink": "/shop"
+              "stripeSubcategory": "functional",
+              "menuLabel": "Functional",
+              "menuLink": "/shop?category=sculpture&subcategory=functional"
             },
             {
-              "menuLabel": "artists",
-              "menuLink": "/shop"
+              "stripeSubcategory": "artistic",
+              "menuLabel": "Artistic",
+              "menuLink": "/shop?category=sculpture&subcategory=artistic"
             }
           ]
         }

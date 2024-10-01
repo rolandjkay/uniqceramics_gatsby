@@ -45,6 +45,10 @@ const useStripeInventory = () => {
               name
               description
               images
+              metadata { 
+                category 
+                subcategory
+              }
             }
           }
         }

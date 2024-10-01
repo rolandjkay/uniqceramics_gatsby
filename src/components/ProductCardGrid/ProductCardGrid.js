@@ -11,7 +11,7 @@ import Slider from '../Slider';
 const ProductCardGrid = (props) => {
   const [showQuickView, setShowQuickView] = useState(false);
   const [quickViewProductId, setQuickViewProductId] = useState(null);
-  const { height, columns = 3, spacing, showSlider = false } = props;
+  const { height, columns = 3, spacing, showSlider = false , category = "tablewear", subcategory = "plate"} = props;
   const columnCount = {
     gridTemplateColumns: `repeat(${columns}, 1fr)`,
   };
@@ -19,7 +19,16 @@ const ProductCardGrid = (props) => {
   const { inventory } = useInventory();
 
   const renderCards = () => {
-    return Object.values(inventory).map((product) => {
+    return Object.values(inventory)
+    .filter((product) => {
+      return (
+        //product.metadata.category === category && 
+        //(product.metadata.subcategory === subcategory || subcategory === null)
+        (!product.metadata || !product.metadata.category || product.metadata.category === category) &&
+        (product.metadata && (product.metadata.subcategory === subcategory || subcategory === null))
+      )
+    })
+    .map((product) => {
       return (
         <ProductCard
           key={product.id}
