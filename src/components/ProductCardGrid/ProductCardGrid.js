@@ -22,10 +22,8 @@ const ProductCardGrid = (props) => {
     return Object.values(inventory)
     .filter((product) => {
       return (
-        //product.metadata.category === category && 
-        //(product.metadata.subcategory === subcategory || subcategory === null)
-        (!product.metadata || !product.metadata.category || product.metadata.category === category) &&
-        (product.metadata && (product.metadata.subcategory === subcategory || subcategory === null))
+        product.metadata.category === category && 
+        (product.metadata.subcategory === subcategory || subcategory === null)
       )
     })
     .map((product) => {

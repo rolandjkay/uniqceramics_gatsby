@@ -4,6 +4,8 @@
  */
 import React, { createContext, useContext } from "react";
 import { graphql, useStaticQuery } from "gatsby"
+import Config from '../config.json';
+//import ProductPage from "../pages/product/sample";
 
 const Context = createContext();
 
@@ -56,6 +58,11 @@ const useStripeInventory = () => {
     }
   `)
 
+  // Assign the first category in config.json to any products that are missing a category.
+  const headerLinksData = Config.headerLinks.find(item => item.menuLabel === "Shop").category;
+  const defaultCategory = headerLinksData[0].stripeCategory;
+  const defaultSubCategory = headerLinksData[0].submenu[0].stripeSubcategory;
+
   // Group prices by product
   const products = {}
   for (const { node: price } of prices.edges) {
@@ -71,6 +78,15 @@ const useStripeInventory = () => {
     product.default_price = product.prices.filter((px) => (px.active))[0].unit_amount;
     product.default_price_id = product.prices.filter((px) => (px.active))[0].id;
     product.default_image = product.images[0];
+
+    // Make sure all products have a default category and subcategory if it is
+    // missing in Stripe.
+    if (!product.metadata || !product.metadata.category)
+    {
+      product.metadata = {category: defaultCategory, subcategory: defaultSubCategory}
+    } else if (!product.metadata.subcategory) {
+      product.subcategory = headerLinksData[0].submenu[0].stripeSubcategory;
+    }
   }
 
   return products;
