@@ -92,19 +92,30 @@ const Footer = (prop) => {
                 </p>
                 <form
                   className={styles.newsLetterForm}
-                  data-netlify="true"
                   name="mailing-list"
-                  method="POST"
+                  method="post"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
                 >
                   <input type="hidden" name="form-name" value="mailing-list" />
-                  {/* REMOVED  icon={'arrow'} */}
+                  <div class="formField">
+                    <input id="newsLetterInput" type="email" name="email"
+                           placeholder="Email..."
+                           width="100%" 
+                           style={{padding: '12px 20px 12px 12px', 
+                                   boxSizing: "border-box",
+                                   marginBottom: "10px"
+                                  }
+                                   } />
+                  </div>
+                  {/* REMOVED  
                   <FormInputField
-                   
+                    icon={'arrow'}
                     id={'newsLetterInput'}
                     value={email}
                     placeholder={'Email'}
                     handleChange={(_, e) => setEmail(e)}
-                  />
+                  />*/}
                   <button type="submit">Subscribe</button>
                 </form>
                 {/*
