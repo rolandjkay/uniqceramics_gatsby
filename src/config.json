@@ -31,10 +31,6 @@
           "link": "/about"
         },
         {
-          "text": "Journal",
-          "link": "/blog"
-        },
-        {
           "text": "Privacy Policy",
           "link": "/support#policy"
         }
@@ -120,11 +116,6 @@
           ]
         }
       ]
-    },
-    {
-      "menuLabel": "journal",
-      "menuLink": "/blog",
-      "category": null
     },
     {
       "menuLabel": "About",
