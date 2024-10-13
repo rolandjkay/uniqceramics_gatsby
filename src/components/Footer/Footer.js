@@ -26,24 +26,13 @@ const Footer = (prop) => {
     formData.append('email', email);  // Assuming 'email' is a state variable storing the email
   
     // Send the form data as a POST request to Netlify
-    fetch('/', {
-      method: 'POST',
-      body: formData,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      }
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
     })
-    .then(response => {
-      if (response.ok) {
-        console.log('Form submitted successfully');
-        // You can show a success message here
-      } else {
-        console.error('Form submission error');
-      }
-    })
-    .catch(error => {
-      console.error('Fetch error: ', error);
-    });
+      .then(() => console.log("Form successfully submitted"))
+      .catch((error) => alert(error));
   };
 
   const handleSocialClick = (platform) => {
@@ -104,7 +93,7 @@ const Footer = (prop) => {
                 <form
                   className={styles.newsLetterForm}
                   onSubmit={(e) => subscribeHandler(e)}
-                  netlify="true"
+                  data-netlify="true"
                 >
                   <FormInputField
                     icon={'arrow'}
