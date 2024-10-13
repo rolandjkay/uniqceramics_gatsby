@@ -14,9 +14,34 @@ const Footer = (prop) => {
   const [email, setEmail] = useState('');
 
   const subscribeHandler = (e) => {
-    e.preventDefault();
-    setEmail('');
+    //e.preventDefault();
+    //setEmail('');
     console.log('Subscribe this email: ', email);
+
+    e.preventDefault(); // Prevents the default form submission
+
+    const form = e.target; // The form element that triggered the event
+    const formData = new FormData(form); // Collect the form data
+  
+    // Send the form data as a POST request to Netlify
+    fetch('/', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        console.log('Form submitted successfully');
+        // You can show a success message here
+      } else {
+        console.error('Form submission error');
+      }
+    })
+    .catch(error => {
+      console.error('Fetch error: ', error);
+    });
   };
 
   const handleSocialClick = (platform) => {
@@ -77,6 +102,7 @@ const Footer = (prop) => {
                 <form
                   className={styles.newsLetterForm}
                   onSubmit={(e) => subscribeHandler(e)}
+                  netlify
                 >
                   <FormInputField
                     icon={'arrow'}
@@ -86,6 +112,7 @@ const Footer = (prop) => {
                     handleChange={(_, e) => setEmail(e)}
                   />
                 </form>
+                {/*
                 <div className={styles.socialContainer}>
                   {Config.social.youtube && (
                     <div
@@ -126,7 +153,7 @@ const Footer = (prop) => {
                       <Icon symbol={'twitter'}></Icon>
                     </div>
                   )}
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
