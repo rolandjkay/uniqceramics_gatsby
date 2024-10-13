@@ -22,6 +22,8 @@ const Footer = (prop) => {
 
     const form = e.target; // The form element that triggered the event
     const formData = new FormData(form); // Collect the form data
+
+    formData.append('email', email);  // Assuming 'email' is a state variable storing the email
   
     // Send the form data as a POST request to Netlify
     fetch('/', {
@@ -102,7 +104,7 @@ const Footer = (prop) => {
                 <form
                   className={styles.newsLetterForm}
                   onSubmit={(e) => subscribeHandler(e)}
-                  netlify
+                  netlify="true"
                 >
                   <FormInputField
                     icon={'arrow'}
@@ -111,6 +113,7 @@ const Footer = (prop) => {
                     placeholder={'Email'}
                     handleChange={(_, e) => setEmail(e)}
                   />
+                  <button type="submit">Subscribe</button>
                 </form>
                 {/*
                 <div className={styles.socialContainer}>
