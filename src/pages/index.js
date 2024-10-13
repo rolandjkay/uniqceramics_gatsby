@@ -32,10 +32,10 @@ const IndexPage = () => {
       {/* Hero Container */}
       <Hero
         maxWidth={'500px'}
-        image={'/banner1.png'}
-        title={'Essentials for a cold winter'}
-        subtitle={'Discover Autumn Winter 2021'}
-        ctaText={'shop now'}
+        image={'/banner1.jpg'}
+        title={'Embracing a perfectly imperfect lifestyle.'}
+        subtitle={'Discover the latest works'}
+        ctaText={'browse collection'}
         ctaAction={goToShop}
       />
 
@@ -55,12 +55,13 @@ const IndexPage = () => {
       {/* Collection Container */}
       <div className={styles.collectionContainer}>
         <Container size={'large'}>
-          <Title name={'New Collection'} />
+          <Title name={'New Collections'} />
           <ProductCollectionGrid />
         </Container>
       </div>
 
       {/* New Arrivals */}
+      {/*
       <div className={styles.newArrivalsContainer}>
         <Container>
           <Title name={'New Arrivals'} link={'/shop'} textLink={'view all'} />
@@ -72,9 +73,13 @@ const IndexPage = () => {
             data={newArrivals}
           />
         </Container>
-      </div>
+      </div> */}
+
+      {/* TEMPORARILY ADDED TO FORCE SOME SPACE BEFORE THE FOOTER. */ }
+      <div><p>&nbsp;</p></div>  
 
       {/* Highlight  */}
+      {/* DISABLE
       <div className={styles.highlightContainer}>
         <Container size={'large'} fullMobile>
           <Highlight
@@ -88,33 +93,35 @@ const IndexPage = () => {
             link={'/shop'}
           />
         </Container>
-      </div>
+      </div> */}
 
       {/* Promotion */}
+      {/* DISABLE
       <div className={styles.promotionContainer}>
         <Hero image={toOptimizedImage('/banner2.png')} title={`-50% off \n All Essentials`} />
         <div className={styles.linkContainers}>
           <Link to={'/shop'}>WOMAN</Link>
           <Link to={'/shop'}>MAN</Link>
         </div>
-      </div>
+      </div> */}
 
       {/* Quote */}
-      <Quote
+      {/*<Quote
         bgColor={'var(--standard-light-grey)'}
         title={'about Sydney'}
         quote={
           '“We believe in two things: the pursuit of quality in everything we do, and looking after one another. Everything else should take care of itself.”'
         }
-      />
+      />*/}
 
       {/* Blog Grid */}
+      {/* TEMP REMOVE JOURNAL
       <div className={styles.blogsContainer}>
         <Container size={'large'}>
           <Title name={'Journal'} subtitle={'Notes on life and style'} />
           <BlogPreviewGrid data={blogData} />
         </Container>
-      </div>
+      </div> */}
 
       {/* Promotion */}
       {/*}

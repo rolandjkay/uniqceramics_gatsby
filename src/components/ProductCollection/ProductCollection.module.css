@@ -19,7 +19,7 @@
     position: absolute;
     bottom: 75px;
     left: 55px;
-    color: var(--standard-white);
+    color: var(--standard-black);
 
     z-index: 10;
 }
