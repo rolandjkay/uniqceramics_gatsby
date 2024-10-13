@@ -96,6 +96,7 @@ const Footer = (prop) => {
                   name="mailing-list"
                   method="POST"
                 >
+                  <input type="hidden" name="form-name" value="mailing-list" />
                   {/* REMOVED  icon={'arrow'} */}
                   <FormInputField
                    
