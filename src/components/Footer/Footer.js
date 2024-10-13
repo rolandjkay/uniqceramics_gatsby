@@ -92,12 +92,13 @@ const Footer = (prop) => {
                 </p>
                 <form
                   className={styles.newsLetterForm}
-                  onSubmit={(e) => subscribeHandler(e)}
                   data-netlify="true"
                   name="mailing-list"
+                  method="POST"
                 >
+                  {/* REMOVED  icon={'arrow'} */}
                   <FormInputField
-                    icon={'arrow'}
+                   
                     id={'newsLetterInput'}
                     value={email}
                     placeholder={'Email'}
