@@ -17,6 +17,7 @@ const ExpandedMenu = (props) => {
               <Link className={styles.menuLink} to={item.categoryLink}>
                 <span className={styles.categoryName}>{item.categoryLabel}</span>
               </Link>
+              {/* TEMPORARY HIDE SUB-CATEGORIES
               <ul>
                 {item.submenu.map((link, linkIndex) => {
                   return (
@@ -27,7 +28,7 @@ const ExpandedMenu = (props) => {
                     </li>
                   );
                 })}
-              </ul>
+              </ul> */}
             </div>
           );
         })}
