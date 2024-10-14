@@ -7,13 +7,17 @@ import Contact from '../components/Contact';
 import Layout from '../components/Layout/Layout';
 import ThemeLink from '../components/ThemeLink';
 import Policy from '../components/Policy';
+import ShippingPolicy from '../components/ShippingPolicy';
+import ReturnsPolicy from '../components/ReturnsPolicy';
+import PrivacyPolicy from '../components/PrivacyPolicy';
+import TermsPolicy from '../components/TermsPolicy';
 import Container from '../components/Container';
 
 const SupportPage = (props) => {
   const subpages = [
     { title: 'Shipping', key: 'shipping' },
     { title: 'Returns', key: 'returns' },
-    { title: 'Payments & Security', key: 'payments' },
+    /*{ title: 'Payments & Security', key: 'payments' },*/
     { title: 'Terms & Conditions', key: 'terms' },
     { title: 'Contact Us', key: 'contact' },
     { title: 'Privacy Policy', key: 'policy' },
@@ -29,19 +33,19 @@ const SupportPage = (props) => {
         tempElement = <Contact />;
         break;
       case 'policy':
-        tempElement = <Policy />;
+        tempElement = <PrivacyPolicy />;
         break;
       case 'shipping':
-        tempElement = <Policy />;
+        tempElement = <ShippingPolicy />;
         break;
       case 'returns':
-        tempElement = <Policy />;
+        tempElement = <ReturnsPolicy />;
         break;
       case 'payments':
         tempElement = <Policy />;
         break;
       case 'terms':
-        tempElement = <Policy />;
+        tempElement = <TermsPolicy />;
         break;
       default:
         break;

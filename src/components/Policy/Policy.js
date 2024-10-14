@@ -5,7 +5,7 @@ const Policy = (props) => {
   return (
     <div className={styles.root}>
       <div className={styles.section}>
-        <h3>1. Lorem Ipsum</h3>
+        <h3>1. Lorem Ipsum Hello</h3>
         <p>
           Delaware limited liability company (The Sydney) collects personal
           information that you voluntarily provide when applying or registering
