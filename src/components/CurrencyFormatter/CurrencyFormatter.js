@@ -23,9 +23,9 @@ const CurrencyFormatter = ({
     style: 'currency',
     currency,
   });
-  let symbol = '$';
+  let symbol = '£';
   let formattedPrice = formatObject.format(displayAmount);
-  if ('formatToParts' in formatObject) {
+  if (false /*'formatToParts' in formatObject*/) {
     const formattedPriceParts = formatObject.formatToParts(displayAmount);
     if (useDollar === false) symbol = formattedPriceParts[0].value;
     const currencyValue = formattedPriceParts.find(
@@ -39,7 +39,7 @@ const CurrencyFormatter = ({
       formattedPrice = formattedPrice.replace(`.${decimalValue.value}`, '');
     }
   } else {
-    // new Intl.NumberFormat is not supported; return amount with dollar sign
+    // new Intl.NumberFormat is not supported; return amount with £ sign
     formattedPrice = amount;
   }
 
