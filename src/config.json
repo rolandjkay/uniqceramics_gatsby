@@ -65,19 +65,19 @@
       "menuLink": "/shop",
       "category": [
         {
-          "categoryLabel": "Tablewear",
-          "categoryLink": "/shop?category=tablewear",
-          "stripeCategory": "tablewear",
+          "categoryLabel": "Tableware",
+          "categoryLink": "/shop?category=tableware",
+          "stripeCategory": "tableware",
           "submenu": [
             {
               "menuLabel": "Plates",
               "stripeSubcategory": "plate",
-              "menuLink": "/shop?category=tablewear&subcategory=plate"
+              "menuLink": "/shop?category=tableware&subcategory=plate"
             },
             {
               "menuLabel": "Cups and mugs",
               "stripeSubcategory": "cup",
-              "menuLink": "/shop?category=tablewear&subcategory=cup"
+              "menuLink": "/shop?category=tableware&subcategory=cup"
             }
           ]
         },
