@@ -35,18 +35,18 @@ const ShopPage = (props) => {
    */
   const location = useLocation();
   const params = new URLSearchParams(location.search);
-  let category = params.get("category") ?? "tablewear";
-  // Could be null, in which case, we display all Tablewear
+  let category = params.get("category") ?? "tableware";
+  // Could be null, in which case, we display all Tableware
   let subcategory = params.get("subcategory"); 
 
   let headerLinksData = Config.headerLinks.find(item => item.menuLabel === "Shop")
                                           .category.find(item => item.stripeCategory === category);
 
-  // If someone edited the URL and passed a nonsense category, then default to "tablewear"
+  // If someone edited the URL and passed a nonsense category, then default to "tableware"
   if (!headerLinksData) {
     headerLinksData = Config.headerLinks.find(item => item.menuLabel === "Shop")
-                                        .category.find(item => item.stripeCategory === "tablewear");
-    category = "tablewear";
+                                        .category.find(item => item.stripeCategory === "tableware");
+    category = "tablewware";
   }
   const categoryLabel = headerLinksData.categoryLabel;
 

@@ -11,7 +11,7 @@ import Slider from '../Slider';
 const ProductCardGrid = (props) => {
   const [showQuickView, setShowQuickView] = useState(false);
   const [quickViewProductId, setQuickViewProductId] = useState(null);
-  const { height, columns = 3, spacing, showSlider = false , category = "tablewear", subcategory = "plate"} = props;
+  const { height, columns = 3, spacing, showSlider = false , category = "tableware", subcategory = "plate"} = props;
   const columnCount = {
     gridTemplateColumns: `repeat(${columns}, 1fr)`,
   };

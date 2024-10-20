@@ -8,9 +8,9 @@ const ProductCollectionGrid = (props) => {
     <div className={styles.root}>
       <ProductCollection
         image={'/collections/tableware.jpg'}
-        title={'Tablewear'}
+        title={'Tableware'}
         text={'SHOP NOW'}
-        link={'/shop?category=tablewear'}
+        link={'/shop?category=tableware'}
       />
       <ProductCollection
         image={'/collections/vases.jpg'}
