@@ -25,6 +25,13 @@ const CurrencyFormatter = ({
   });
   let symbol = '£';
   let formattedPrice = formatObject.format(displayAmount);
+
+  /*
+   * You added "false" to stop the first branch running,
+   * which was cauing prices to display as 135135.00 on
+   * mobile. We don't need to support multi-currency anyway,
+   * so no need for all this complication.
+   */
   if (false /*'formatToParts' in formatObject*/) {
     const formattedPriceParts = formatObject.formatToParts(displayAmount);
     if (useDollar === false) symbol = formattedPriceParts[0].value;
