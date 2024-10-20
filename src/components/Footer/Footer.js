@@ -98,7 +98,7 @@ const Footer = (prop) => {
                   data-netlify-honeypot="bot-field"
                 >
                   <input type="hidden" name="form-name" value="mailing-list" />
-                  <div class="formField">
+                  <div className="formField">
                     <input id="newsLetterInput" type="email" name="email"
                            placeholder="Email..."
                            width="100%" 
