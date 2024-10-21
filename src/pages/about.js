@@ -61,17 +61,17 @@ const AboutPage = (props) => {
             <br />
             <br />
             <p>
-              The infinite types of texture and materials from the natural world which is
-              attracting me and expiring me. I didn&lsquo;t realised that my artistic ideal
-              is so close to the traditional Japanese philosophy (Wabi sabi)  until a few
-              years ago, which finds beauty in imperfection, impermanence and simplicity.
-              The beauty of simply, rustic surface and irregular shapes, uneven textures or
-              ageing materials are fascinating me. 
+              The infinite types of texture and materials from the natural world 
+              attract and inspire me. A few years ago, I realised that my artistic ideal
+              is closely related to the traditional Japanese philosophy (Wabi sabi),
+              which finds beauty in imperfection, impermanence and simplicity.
+              The beauty of simple, rustic surfaces, irregular shapes, uneven textures and
+              ageing materials are fascinating to me. 
             </p>
             <br />
             <br />
             <p>
-              My ceramic works with a respect for the concepts embedded in Wabi sabi. 
+              My ceramics work with a respect for the concepts embedded in Wabi sabi. 
             </p>
           </div>
         </Container>
@@ -89,7 +89,7 @@ const AboutPage = (props) => {
                 <dt>2003-2006</dt><dd>MA in Art History at Chinese National Academy of Arts, Beijing</dd>
               </dl>
               <p>
-                I worked as assistant lecturer from 1997-2002 then as a lecturer of Fine art at Fujian Normal university from 2002-2008.
+                I worked as assistant lecturer from 1997-2002 then as a lecturer of Fine art at Fujian Normal University from 2002-2008.
               </p>
               <img alt={'founder'} src={toOptimizedImage('/about/child.jpg')}></img>
             </div>
