@@ -27,8 +27,8 @@ const AboutPage = (props) => {
         {/* Hero Container */}
         <Hero
           maxWidth={'900px'}
-          image={'/about.png'}
-          title={`Sydney \n A British brand since 1860`}
+          image={'/about/Fragility_IV_large.jpg'}
+          title={`Qing Chen`}
         />
 
         <div className={styles.navContainer}>
@@ -49,77 +49,69 @@ const AboutPage = (props) => {
         <Container size={'large'} spacing={'min'}>
           <div className={styles.detailContainer} ref={historyRef}>
             <p>
-              Founded in 1860, Sydney is an innovative British brand with a
-              contemporary edge. We make timeless everyday luxury clothing.
+              I am a ceramicist working in Buckinghamshire.
             </p>
             <br />
             <br />
             <p>
-              We created some of the world's first T-shirts and spent decades
-              perfecting the feel of the cotton. Today we are the only brand
-              that makes T-shirts in its own factory in the UK. And we do this
-              in the same factory we have occupied since 1937.
+              I had been studying Fine art and Art History for a long period before I focus
+              in ceramic world three years ago. I am interesting in all handcrafts, archeology
+              and antique. 
+            </p>
+            <br />
+            <br />
+            <p>
+              The infinite types of texture and materials from the natural world which is
+              attracting me and expiring me. I didn&lsquo;t realised that my artistic ideal
+              is so close to the traditional Japanese philosophy (Wabi sabi)  until a few
+              years ago, which finds beauty in imperfection, impermanence and simplicity.
+              The beauty of simply, rustic surface and irregular shapes, uneven textures or
+              ageing materials are fascinating me. 
+            </p>
+            <br />
+            <br />
+            <p>
+              My ceramic works with a respect for the concepts embedded in Wabi sabi. 
             </p>
           </div>
         </Container>
 
         <div className={styles.imageContainer}>
-          <img alt={'shirt brand'} src={toOptimizedImage('/about1.png')}></img>
+          <img alt={'shirt brand'} src={toOptimizedImage('/about/fragility_I.jpg')}></img>
         </div>
 
         <Container size={'large'} spacing={'min'}>
           <div className={styles.content}>
-            <h3>Our Values</h3>
+            <h3>Education</h3>
             <div ref={valuesRef}>
+              <dl>
+                <dt>1993-1997</dt><dd>BA in Fine art at Fujian Normal University, China</dd>
+                <dt>2003-2006</dt><dd>MA in Art History at Chinese National Academy of Arts, Beijing</dd>
+              </dl>
               <p>
-                Sunspel produced some of the world's earliest T-shirts. In the
-                late 1800s the business made luxury tunics and undershirts from
-                lightweight Sea Island cotton for export to the Far East and
-                other warm climates. While these garments initially had silk
-                buttoned plackets, these were removed in the early 1900s and
-                replaced with simple bound necks to reduce manufacturing costs -
-                creating the T-shirt. We've supplied the world as the T-shirt
-                has evolved from underwear to outerwear, from symbol of youthful
-                rebellion to everyday wardrobe staple, and we've spent decades
-                refining its every last aspect.
+                I worked as assistant lecturer from 1997-2002 then as a lecturer of Fine art at Fujian Normal university from 2002-2008.
               </p>
-              <ol>
-                <li>Be an ecowear</li>
-                <li>Sophisticated and not mass-produced</li>
-                <li>Only natural materials</li>
-              </ol>
-              <img alt={'founder'} src={toOptimizedImage('/about2.png')}></img>
+              <img alt={'founder'} src={toOptimizedImage('/about/child.jpg')}></img>
             </div>
-            <h3>Sustainability</h3>
+            <h3>Group Exhibitions</h3>
             <div id={'#sustainability'} ref={sustainabilityRef}>
-              <p>
-                Our founder, Thomas Hill, had both an eye for quality and a
-                desire to innovate. As well as using the finest fibres such as
-                Sea Island cotton, cashmere and silk, he invented his own
-                fabrics. Sunspel continues this commitment to innovation today
-                and our unique fabrics include: Q100 Sea Island cotton, Q82
-                Supima cotton, Q75 warp knit mesh cotton and Q14 warp knit
-                cellular cotton. The technology behind these fabrics remains
-                unchanged today and all Sunspel products use the finest cottons,
-                wools and fibres.
-              </p>
-              <p>
-                Made in Long Eaton, England and crafted from our luxurious long
-                staple Supima cotton for unparalleled softness, comfort and
-                durability, the Sunspel T-shirt has a classic fit and only the
-                most essential details.{' '}
-              </p>
-              <p>
-                With over 100 years spent perfecting fabric, fit and style, the
-                Sunspel Classic T-shirt is recognised as the finest in the
-                world.
-              </p>
+            <dl>
+                <dt>1993-1997</dt><dd>BA in Fine art at Fujian Normal University, China</dd>
+                <dt>2003-2006</dt><dd>MA in Art History at Chinese National Academy of Arts, Beijing</dd>
+                <dt>2016</dt><dd>The Second Global Chinese Painting and Calligraphy exhibition in Tianjin Art museum, China.</dd>
+                <dt>2017</dt><dd>The Society of Women Artists Annual Exhibition at The Mall Galleries , London</dd>
+                <dt>2018</dt><dd>The Society of Women Artists Annual Exhibition at The Mall Galleries , London</dd>
+                <dt>2018</dt><dd>Royal Society of Portrait Painters Annual Exhibition at The Mall Galleries, London</dd>
+                <dt>2022</dt><dd>Bucks Pottery & Sculpture Society exhibition, Buckinghamshire, Uk</dd>
+                <dt>2023</dt><dd>Buckinghamshire Arts Society Spring Open exhibition , Buckinghamshire, UK</dd>
+                <dt>2024</dt><dd>Buckinghamshire Arts Society Spring / Autumn Open exhibitions , Buckinghamshire, UK</dd>
+              </dl>
             </div>
           </div>
         </Container>
 
         <div className={styles.imageContainer}>
-          <img alt={'shirt backwards'} src={toOptimizedImage('/about3.png')}></img>
+          <img alt={'shirt backwards'} src={toOptimizedImage('/about/memories.jpg')}></img>
         </div>
       </div>
     </Layout>

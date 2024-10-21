@@ -93,6 +93,25 @@
     line-height: 52px;
 }
 
+.content dl {
+    padding-left: 32px;
+    margin-bottom: 32px;
+}
+
+.content dl dt {
+    font-family: var(--standard-header);
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 52px;
+}
+
+.content dl dd {
+    font-family: var(--standard-header);
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 52px;
+}
+
 .content ul {
     margin-bottom: 32px;
 }
