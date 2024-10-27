@@ -14,7 +14,7 @@
     border-bottom: 1px solid var(--bg-light-gray);
     position: sticky;
     gap: 48px;
-    top: 150px;
+    top: 70px;
     background-color: var(--standard-white);
     overflow-x: auto;
     padding-left: 32px;
@@ -33,21 +33,22 @@
 
 .detailContainer {
     margin-left: auto;
+    margin-right: auto;
     max-width: 800px;
-    margin-top: 164px;
+    margin-top: 100px;
 }
 
 .detailContainer p{
     font-family: var(--standard-header);
     font-weight: normal;
-    font-size: 42px;
-    line-height: 50px;
+    font-size: 16px;
+    margin-bottom: 16px;
 }
 
 .imageContainer {
-    padding-bottom: 200px;
+    padding-bottom: 50px;
     margin: 80px 48px 0px 48px;
-    min-height: 600px;
+    min-height: 400px;
 }
 
 .imageContainer img {
@@ -72,7 +73,7 @@
     font-weight: normal;
     font-size: 16px;
     line-height: 26px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .content img {
@@ -99,17 +100,14 @@
 }
 
 .content dl dt {
-    font-family: var(--standard-header);
     font-weight: normal;
-    font-size: 32px;
-    line-height: 52px;
+    font-size: 16px;
 }
 
 .content dl dd {
-    font-family: var(--standard-header);
     font-weight: normal;
-    font-size: 32px;
-    line-height: 52px;
+    font-size: 16px;
+    padding-bottom: 16px;
 }
 
 .content ul {
@@ -119,6 +117,11 @@
 /* Hide scrollbar for Chrome, Safari and Opera */
 .navContainer::-webkit-scrollbar {
     display: none;
+}
+
+/* Add some extra space when the text is in the second column */
+.firstParagraph {
+    padding-top: 32px;
 }
 
 @media (max-width:1050px) {
@@ -132,6 +135,11 @@
 }
 
 @media (max-width: 900px) {
+    /* Turn off extra space when everything is in one column */
+    .firstParagraph {
+        padding-top: 0px;
+    }
+
     .content {
         grid-template-columns: 1fr;
         gap: 24px 0px;
@@ -169,7 +177,7 @@
 
 @media (max-width: 800px) {
     .navContainer {
-        top: 90px;
+        top: 40px;
     }
 
     .imageContainer {
