@@ -51,28 +51,23 @@ const Contact = (props) => {
       </div>
 
       <div className={styles.contactContainer}>
-        <form onSubmit={(e) => handleSubmit(e)}>
+        <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact" />
           <div className={styles.contactForm}>
             <FormInputField
               id={'name'}
-              value={contactForm.name}
-              handleChange={(id, e) => handleChange(id, e)}
               type={'text'}
               labelName={'Full Name'}
               required
             />
             <FormInputField
               id={'phone'}
-              value={contactForm.phone}
-              handleChange={(id, e) => handleChange(id, e)}
               type={'number'}
               labelName={'Phone Number'}
               required
             />
             <FormInputField
               id={'email'}
-              value={contactForm.email}
-              handleChange={(id, e) => handleChange(id, e)}
               type={'email'}
               labelName={'Email'}
               required
@@ -80,8 +75,6 @@ const Contact = (props) => {
             <div className={styles.commentInput}>
               <FormInputField
                 id={'comment'}
-                value={contactForm.comment}
-                handleChange={(id, e) => handleChange(id, e)}
                 type={'textarea'}
                 labelName={'Comments / Questions'}
                 required
@@ -91,7 +84,7 @@ const Contact = (props) => {
           <Button
             className={styles.customButton}
             level={'primary'}
-            type={'buttonSubmit'}
+            type={'submitubmit'}
           >
             submit
           </Button>
