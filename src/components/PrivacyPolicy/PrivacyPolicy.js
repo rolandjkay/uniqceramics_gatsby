@@ -8,11 +8,11 @@ const PrivacyPolicy = (props) => {
         <h3>Privacy Policy</h3>
         
 
-<p>This page is used to inform website visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use this website. If you choose to use our Service, then you agree to the collection and use of information in relation with this policy. The Personal Information that we collect are used for providing and improving the Service. We will not use or share your information with anyone except as described in this Privacy Policy.</p>
+<p>This page is used to inform website visitors regarding our policies with the collection, use and disclosure of Personal Information. If you choose to use our Service, then you agree to the collection and use of information in relation with this policy. The Personal Information that we collect are used for providing and improving the Service. We will not use or share your information with anyone except as described in this Privacy Policy.</p>
 
 <h3>Information Collection and Use</h3>
 
-<p>For a better experience while using our Service, we may require you to provide us with certain personally identifiable information, including but not limited to your name, phone number, and postal address. The information that we collect will be used to contact or identify you. We will never use your collected information for anything other than sending out newsletter or products, if you do in fact purchase from this website.</p>
+<p>For a better experience while using our Service, we may require you to provide us with certain personally identifiable information, including but not limited to your name, phone number, and postal address. The information that we collect will be used to contact or identify you. We will never use your collected information for anything other than sending out newsletter or products.</p>
 
 <p>This website collects personal data to power our site analytics, including:</p>
 
@@ -34,7 +34,7 @@ const PrivacyPolicy = (props) => {
 </ul>
 
 
-<p>We share this information with Squarespace, our website analytics provider, to learn about site traffic and activity.</p>
+<p>We share this information with our website analytics provider to learn about site traffic and activity.</p>
 
 <p>When you buy something on this website, we collect personal information from you to fulfill the order. We may collect information like your:</p>
 
