@@ -86,9 +86,8 @@ const Footer = (prop) => {
             <div className={styles.newsLetter}>
               <div className={styles.newsLetterContent}>
                 <span className={styles.linkTitle}>Newsletter</span>
-                <p className={styles.promoMessage}>
-                  Get 10% off your first purchase! Plus, be the first to know
-                  about sales, new product launches and exclusive offers!
+                 <p className={styles.promoMessage}>
+                  Sign up to my newsletter to find out the next kiln open dates&hellip;
                 </p>
                 <form
                   className={styles.newsLetterForm}
