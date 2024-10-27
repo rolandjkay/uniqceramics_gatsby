@@ -18,7 +18,7 @@ const SupportPage = (props) => {
     { title: 'Shipping', key: 'shipping' },
     { title: 'Returns', key: 'returns' },
     /*{ title: 'Payments & Security', key: 'payments' },*/
-    { title: 'Terms & Conditions', key: 'terms' },
+    { title: 'Caring for Ceramics', key: 'terms' },
     { title: 'Contact Us', key: 'contact' },
     { title: 'Privacy Policy', key: 'policy' },
   ];
