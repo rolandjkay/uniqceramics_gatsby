@@ -6,6 +6,10 @@ const ShippingPolicy = (props) => {
     <div className={styles.root}>
       <div className={styles.section}>
         <h3>Shipping Policy</h3>
+        <p>
+          Shipping on domestic (UK) orders is free. For international orders, please get in touch using 
+          our <a href="support/#contact">contact form</a> before placing your order.
+        </p>
 
         <p>
           Domestic orders can take up to 5-6 business days, (or longer depending on the circumstances).
