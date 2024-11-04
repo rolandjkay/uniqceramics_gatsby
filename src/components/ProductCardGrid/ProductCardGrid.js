@@ -1,22 +1,37 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { useShoppingCart } from 'use-shopping-cart';
 
 import * as styles from './ProductCardGrid.module.css';
 import { useInventory } from '../../context/InventoryProvider';
+import AddItemNotificationContext from '../../context/AddItemNotificationProvider';
 
-import Drawer from '../Drawer';
 import ProductCard from '../ProductCard';
-import QuickView from '../QuickView';
 import Slider from '../Slider';
 
 const ProductCardGrid = (props) => {
-  const [showQuickView, setShowQuickView] = useState(false);
-  const [quickViewProductId, setQuickViewProductId] = useState(null);
   const { height, columns = 3, spacing, showSlider = false , category = "tableware", subcategory = "plate"} = props;
   const columnCount = {
     gridTemplateColumns: `repeat(${columns}, 1fr)`,
   };
 
   const { inventory } = useInventory();
+  const { addItem, cartDetails, incrementItem } = useShoppingCart();
+  const ctxAddItemNotification = useContext(AddItemNotificationContext);
+  const showNotification = ctxAddItemNotification.showNotification;
+
+  const handleAddToCart = (product_id) => {
+    const item = Object.values(cartDetails).find((i) => i.product_id == product_id);
+
+    if (item) 
+    {
+      incrementItem(item.id);
+    }
+    else
+    {
+      addItem({product_id: product_id, currency: "GBP"});
+    }
+    showNotification();
+  };
 
   const renderCards = () => {
     return Object.values(inventory)
@@ -32,7 +47,7 @@ const ProductCardGrid = (props) => {
           key={product.id}
           product_id={product.id}
           height={height}
-          showQuickView={() => { setQuickViewProductId(product.id); setShowQuickView(true); }}
+          onAddToCart={() => { handleAddToCart(product.id); }}
         />
       );
     });
@@ -54,10 +69,6 @@ const ProductCardGrid = (props) => {
           <Slider spacing={spacing}>{inventory && renderCards()}</Slider>
         </div>
       )}
-
-      <Drawer visible={showQuickView} close={() => setShowQuickView(false)}>
-        <QuickView product_id={quickViewProductId} close={() => setShowQuickView(false)} />
-      </Drawer>
     </div>
   );
 };

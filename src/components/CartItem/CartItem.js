@@ -6,7 +6,6 @@ import AdjustItem from '../AdjustItem';
 import CurrencyFormatter from '../CurrencyFormatter';
 import Drawer from '../Drawer';
 import RemoveItem from '../RemoveItem';
-import QuickView from '../QuickView';
 
 import * as styles from './CartItem.module.css';
 import { navigate } from 'gatsby';
@@ -15,7 +14,6 @@ import { toOptimizedImage } from '../../helpers/general';
 const CartItem = (props) => {
   const { cart_id } = props;
 
-  const [showQuickView, setShowQuickView] = useState(false);
   const { cartDetails } = useShoppingCart(); 
   const { inventory } = useInventory();
 
@@ -38,13 +36,6 @@ const CartItem = (props) => {
           <span>Color: {color}</span>
           <span>Size: {size}</span>
         </div>*/}
-        <div
-          className={styles.editContainer}
-          role={'presentation'}
-          onClick={() => setShowQuickView(true)}
-        >
-          <span>Edit</span>
-        </div>
       </div>
       <div className={styles.adjustItemContainer}>
         <AdjustItem cart_id={cart_id} />
@@ -55,10 +46,6 @@ const CartItem = (props) => {
       <div className={styles.removeContainer}>
         <RemoveItem cart_id={cart_id}/> 
       </div>
-      <Drawer visible={showQuickView} close={() => setShowQuickView(false)}>
-        QuickView not working
-        {/*<QuickView product={null} close={() => setShowQuickView(false)} /> */}
-      </Drawer>
     </div>
   );
 };

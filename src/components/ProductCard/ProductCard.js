@@ -11,7 +11,7 @@ import { useCrumbs, crumbsToQueryString } from '../../context/BreadcrumbProvider
 
 const ProductCard = (props) => {
   const [isWishlist, setIsWishlist] = useState(false);
-  const { product_id, showQuickView, height = 580 } = props;
+  const { product_id, onAddToCart, height = 580 } = props;
   const { inventory } = useInventory();
   const { crumbs } = useCrumbs();
 
@@ -22,9 +22,9 @@ const ProductCard = (props) => {
     navigate(`/product/sample?productId=${product_id}&${crumbsToQueryString(crumbs)}`);
   };
 
-  const handleQuickView = (e) => {
+  const handleAddToCartClick = (e) => {
     e.stopPropagation();
-    showQuickView();
+    onAddToCart();
   };
 
   const handleFavorite = (e) => {
@@ -46,7 +46,7 @@ const ProductCard = (props) => {
         <div
           className={styles.bagContainer}
           role={'presentation'}
-          onClick={(e) => handleQuickView(e)}
+          onClick={(e) => handleAddToCartClick(e)}
         >
           <Icon symbol={'bagPlus'} />
         </div>
