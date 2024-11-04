@@ -33,46 +33,43 @@ const AboutPage = (props) => {
 
         <div className={styles.navContainer}>
           <ThemeLink onClick={() => handleScroll(historyRef)} to={'#history'}>
-            History
+            About Me
           </ThemeLink>
           <ThemeLink onClick={() => handleScroll(valuesRef)} to={'#values'}>
-            Values
+            Education
           </ThemeLink>
           <ThemeLink
             onClick={() => handleScroll(sustainabilityRef)}
             to={'#sustainability'}
           >
-            Sustainability
+            Group Exhibitions
           </ThemeLink>
         </div>
 
         <Container size={'large'} spacing={'min'}>
-          <div className={styles.detailContainer} ref={historyRef}>
-            <p>
-              I am a ceramicist working in Buckinghamshire.
-            </p>
-            <br />
-            <br />
-            <p>
-              I had been studying Fine art and Art History for a long period before I focus
-              in ceramic world three years ago. I am interesting in all handcrafts, archeology
-              and antique. 
-            </p>
-            <br />
-            <br />
-            <p>
-              The infinite types of texture and materials from the natural world 
-              attract and inspire me. A few years ago, I realised that my artistic ideal
-              is closely related to the traditional Japanese philosophy (Wabi sabi),
-              which finds beauty in imperfection, impermanence and simplicity.
-              The beauty of simple, rustic surfaces, irregular shapes, uneven textures and
-              ageing materials are fascinating to me. 
-            </p>
-            <br />
-            <br />
-            <p>
-              My ceramics work with a respect for the concepts embedded in Wabi sabi. 
-            </p>
+          <div className={styles.content} ref={historyRef}>
+            <h3>About Me</h3>
+            <div>
+              <p className={styles.firstParagraph}>
+                I am a ceramicist and artist working in Buckinghamshire.
+              </p>
+              <p>
+                I had been studying Fine art and Art History for a long period before I focus
+                in ceramic world three years ago. I am interesting in all handcrafts, archeology
+                and antique. 
+              </p>
+              <p>
+                The infinite types of texture and materials from the natural world 
+                attract and inspire me. A few years ago, I realised that my artistic ideal
+                is closely related to the traditional Japanese philosophy (Wabi sabi),
+                which finds beauty in imperfection, impermanence and simplicity.
+                The beauty of simple, rustic surfaces, irregular shapes, uneven textures and
+                ageing materials are fascinating to me. 
+              </p>
+              <p>
+                My ceramics work with a respect for the concepts embedded in Wabi sabi. 
+              </p>
+            </div>
           </div>
         </Container>
 
@@ -84,9 +81,9 @@ const AboutPage = (props) => {
           <div className={styles.content}>
             <h3>Education</h3>
             <div ref={valuesRef}>
-              <dl>
-                <dt>1993-1997</dt><dd>BA in Fine art at Fujian Normal University, China</dd>
-                <dt>2003-2006</dt><dd>MA in Art History at Chinese National Academy of Arts, Beijing</dd>
+              <dl className={styles.firstParagraph}>
+                <dt>1993 - 1997</dt><dd>BA in Fine art at Fujian Normal University, China</dd>
+                <dt>2003 - 2006</dt><dd>MA in Art History at Chinese National Academy of Arts, Beijing</dd>
               </dl>
               <p>
                 I worked as assistant lecturer from 1997-2002 then as a lecturer of Fine art at Fujian Normal University from 2002-2008.
@@ -95,16 +92,16 @@ const AboutPage = (props) => {
             </div>
             <h3>Group Exhibitions</h3>
             <div id={'#sustainability'} ref={sustainabilityRef}>
-            <dl>
-                <dt>1993-1997</dt><dd>BA in Fine art at Fujian Normal University, China</dd>
-                <dt>2003-2006</dt><dd>MA in Art History at Chinese National Academy of Arts, Beijing</dd>
+            <dl className={styles.firstParagraph}>
+                <dt>1993 - 1997</dt><dd>BA in Fine art at Fujian Normal University, China</dd>
+                <dt>2003 - 2006</dt><dd>MA in Art History at Chinese National Academy of Arts, Beijing</dd>
                 <dt>2016</dt><dd>The Second Global Chinese Painting and Calligraphy exhibition in Tianjin Art museum, China.</dd>
-                <dt>2017</dt><dd>The Society of Women Artists Annual Exhibition at The Mall Galleries , London</dd>
-                <dt>2018</dt><dd>The Society of Women Artists Annual Exhibition at The Mall Galleries , London</dd>
+                <dt>2017</dt><dd>The Society of Women Artists Annual Exhibition at The Mall Galleries, London</dd>
+                <dt>2018</dt><dd>The Society of Women Artists Annual Exhibition at The Mall Galleries, London</dd>
                 <dt>2018</dt><dd>Royal Society of Portrait Painters Annual Exhibition at The Mall Galleries, London</dd>
                 <dt>2022</dt><dd>Bucks Pottery & Sculpture Society exhibition, Buckinghamshire, Uk</dd>
-                <dt>2023</dt><dd>Buckinghamshire Arts Society Spring Open exhibition , Buckinghamshire, UK</dd>
-                <dt>2024</dt><dd>Buckinghamshire Arts Society Spring / Autumn Open exhibitions , Buckinghamshire, UK</dd>
+                <dt>2023</dt><dd>Buckinghamshire Arts Society Spring Open exhibition, Buckinghamshire, UK</dd>
+                <dt>2024</dt><dd>Buckinghamshire Arts Society Spring / Autumn Open exhibitions, Buckinghamshire, UK</dd>
               </dl>
             </div>
           </div>

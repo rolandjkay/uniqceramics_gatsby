@@ -5,7 +5,7 @@ const TermsPolicy = (props) => {
   return (
     <div className={styles.root}>
       <div className={styles.section}>
-        <h3>Caring for pots</h3>
+        <h3>Caring for ceramics</h3>
 
         <p>Crackle glazed pieces will inherently stain overtime, my work is also highly fired stoneware that contains a lot of iron (for the most part), meaning they
           are more susceptible to chipping compared to mass produced wares. They are of course objects I'd expect to see everyday use, but they're artisan and therefore

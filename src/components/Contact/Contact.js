@@ -28,18 +28,7 @@ const Contact = (props) => {
   return (
     <div className={styles.root}>
       <div className={styles.section}>
-        <h4>Send Us A Message</h4>
-        <p>
-          Our Customer Service team are here for all enquiries Monday to Friday,
-          9am - 5pm AEDT (Australian Eastern Daylight Savings Time).
-        </p>
-        <p>We look forward to hearing from you.</p>
-      </div>
-
-      <div className={styles.section}>
-        <h4>Phone</h4>
-        <p>+1 424 280 4971</p>
-        <p>Monday to Friday - 9am - 5pm AEDT</p>
+        <h4>Send Me A Message</h4>
       </div>
 
       <div className={styles.section}>
@@ -51,28 +40,23 @@ const Contact = (props) => {
       </div>
 
       <div className={styles.contactContainer}>
-        <form onSubmit={(e) => handleSubmit(e)}>
+        <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact" />
           <div className={styles.contactForm}>
             <FormInputField
               id={'name'}
-              value={contactForm.name}
-              handleChange={(id, e) => handleChange(id, e)}
               type={'text'}
               labelName={'Full Name'}
               required
             />
             <FormInputField
               id={'phone'}
-              value={contactForm.phone}
-              handleChange={(id, e) => handleChange(id, e)}
               type={'number'}
               labelName={'Phone Number'}
               required
             />
             <FormInputField
               id={'email'}
-              value={contactForm.email}
-              handleChange={(id, e) => handleChange(id, e)}
               type={'email'}
               labelName={'Email'}
               required
@@ -80,8 +64,6 @@ const Contact = (props) => {
             <div className={styles.commentInput}>
               <FormInputField
                 id={'comment'}
-                value={contactForm.comment}
-                handleChange={(id, e) => handleChange(id, e)}
                 type={'textarea'}
                 labelName={'Comments / Questions'}
                 required
@@ -91,7 +73,7 @@ const Contact = (props) => {
           <Button
             className={styles.customButton}
             level={'primary'}
-            type={'buttonSubmit'}
+            type={'submitubmit'}
           >
             submit
           </Button>

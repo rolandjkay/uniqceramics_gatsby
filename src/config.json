@@ -40,10 +40,6 @@
       "subTitle": "Support",
       "links": [
         {
-          "text": "FAQ",
-          "link": "/faq"
-        },
-        {
           "text": "Contact Us",
           "link": "/support#contact"
         },
