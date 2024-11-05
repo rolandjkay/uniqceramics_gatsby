@@ -110,12 +110,12 @@ const MobileNavigation = (props) => {
                   </Link>
                 );
               })}
-              <div className={styles.navFooter}>
+              {/*<div className={styles.navFooter}>
                 <Link to={'/favorites'}>
                   <Icon symbol={'heart'} />
                   Favorites (0)
                 </Link>
-              </div>
+              </div>*/}
             </div>
           )}
 
