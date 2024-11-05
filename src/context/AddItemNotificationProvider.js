@@ -2,7 +2,8 @@ import React, { createContext, useState, useEffect } from 'react';
 
 const defaultState = {
   open: false,
-  productId: null
+  productId: null,
+  alreadyInCart: false
 };
 
 export const NotificationContext = createContext(defaultState);
@@ -10,8 +11,8 @@ export const NotificationContext = createContext(defaultState);
 export const NotificationProvider = ({ children }) => {
   const [state, setState] = useState(defaultState);
 
-  const showNotification = (productId) => {
-    setState({ ...state, open: true, productId: productId});
+  const showNotification = ({productId, alreadyInCart}) => {
+    setState({ ...state, open: true, productId: productId, alreadyInCart: alreadyInCart});
   };
 
   const closeNotification = () => {

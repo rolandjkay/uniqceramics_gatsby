@@ -24,13 +24,14 @@ const ProductCardGrid = (props) => {
 
     if (item) 
     {
-      incrementItem(item.id);
+      //incrementItem(item.id);
+      showNotification({productId: product_id, alreadyInCart: true})
     }
     else
     {
       addItem({product_id: product_id, currency: "GBP"});
-    }
-    showNotification(product_id);
+      showNotification({productId: product_id, alreadyInCart: false});
+  }
   };
 
   const renderCards = () => {

@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { useShoppingCart } from 'use-shopping-cart';
 import { useInventory } from '../../context/InventoryProvider';
 
-import AdjustItem from '../AdjustItem';
 import CurrencyFormatter from '../CurrencyFormatter';
-import Drawer from '../Drawer';
 import RemoveItem from '../RemoveItem';
 
 import * as styles from './CartItem.module.css';
@@ -37,9 +35,9 @@ const CartItem = (props) => {
           <span>Size: {size}</span>
         </div>*/}
       </div>
-      <div className={styles.adjustItemContainer}>
+      {/*<div className={styles.adjustItemContainer}>
         <AdjustItem cart_id={cart_id} />
-      </div>
+      </div>*/}
       <div className={styles.priceContainer}>
         <CurrencyFormatter amount={product.default_price/100} appendZero />
       </div>

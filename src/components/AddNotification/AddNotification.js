@@ -26,6 +26,7 @@ const AddNotification = (props) => {
   const ctxAddItemNotification = useContext(AddItemNotificationContext);
   const showNotif = ctxAddItemNotification.state?.open;
   const productId = ctxAddItemNotification.state?.productId;
+  const alreadyInCart = ctxAddItemNotification.state?.alreadyInCart;
   const product = inventory[productId];
 
   return (
@@ -38,7 +39,7 @@ const AddNotification = (props) => {
         <div className={styles.iconContainer}>
           <Icon symbol={'check'}></Icon>
         </div>
-        <span>Item added to cart</span>
+        <span>{alreadyInCart ? "Item already in cart" : "Item added to cart"}</span>
       </div>
 
       <div className={styles.newItemContainer}>
@@ -53,7 +54,7 @@ const AddNotification = (props) => {
 
       <div className={styles.actionContainer}>
         <Button onClick={props.openCart} level={'secondary'}>
-          view my cart (1)
+          view my cart
         </Button>
         <Button level="primary" href="/cart">
           checkout

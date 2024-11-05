@@ -5,7 +5,6 @@ import { useInventory } from '../../context/InventoryProvider';
 import * as styles from './sample.module.css';
 
 import Accordion from '../../components/Accordion';
-import AdjustItem from '../../components/AdjustItem';
 import Button from '../../components/Button';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import Container from '../../components/Container';
@@ -65,13 +64,14 @@ const ProductPage = (props) => {
 
     if (item) 
     {
-      incrementItem(item.id);
+      //incrementItem(item.id);
+      showNotification({productId: product_id, alreadyInCart: true})
     }
     else
     {
       addItem({product_id: product_id, currency: "GBP"});
     }
-    showNotification(product_id);
+    showNotification({productId: product_id, alreadyInCart: true});
   };
 
   return (

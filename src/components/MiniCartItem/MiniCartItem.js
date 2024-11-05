@@ -3,7 +3,6 @@ import { useShoppingCart } from 'use-shopping-cart';
 import { useInventory } from '../../context/InventoryProvider';
 
 import { navigate } from 'gatsby';
-import AdjustItem from '../AdjustItem';
 import CurrencyFormatter from '../CurrencyFormatter';
 import RemoveItem from '../RemoveItem';
 
@@ -55,9 +54,9 @@ const MiniCartItem = (props) => {
             <span className={styles.size}>{size}</span>
           </span>*/}
         </div>
-        <div className={styles.adjustItemContainer}>
+        {/*<div className={styles.adjustItemContainer}>
           <AdjustItem cart_id={cart_id}/>
-        </div>
+        </div>*/}
       </div>
       <div className={styles.closeContainer}>
         <RemoveItem cart_id={cart_id} />
