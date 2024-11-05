@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useLocation } from '@reach/router';
+import { useShoppingCart } from 'use-shopping-cart';
 import { useInventory } from '../../context/InventoryProvider';
 import * as styles from './sample.module.css';
 
@@ -26,6 +27,7 @@ import { useCrumbs, queryStringToCrumbs } from '../../context/BreadcrumbProvider
 const ProductPage = (props) => {
   const ctxAddItemNotification = useContext(AddItemNotificationContext);
   const { inventory } = useInventory();
+  const { addItem, cartDetails, incrementItem } = useShoppingCart();
   const showNotification = ctxAddItemNotification.showNotification;
 
   //const sampleProduct = generateMockProductData(1, 'sample')[0];
@@ -57,6 +59,20 @@ const ProductPage = (props) => {
   if (!productImages) {
     productImages = fetchProductImages("default");
   }
+
+  const handleAddToCart = (product_id) => {
+    const item = Object.values(cartDetails).find((i) => i.product_id === product_id);
+
+    if (item) 
+    {
+      incrementItem(item.id);
+    }
+    else
+    {
+      addItem({product_id: product_id, currency: "GBP"});
+    }
+    showNotification(product_id);
+  };
 
   return (
     <Layout>
@@ -102,7 +118,7 @@ const ProductPage = (props) => {
               <div className={styles.actionContainer}>
                 <div className={styles.addToButtonContainer}>
                   <Button
-                    onClick={() => showNotification()}
+                    onClick={() => handleAddToCart(productId)}
                     fullWidth
                     level={'primary'}
                   >
