@@ -39,12 +39,9 @@ export function queryStringToCrumbs(query) {
   var crumb = null;
   const crumbs = []
 
-  console.log("QUERY",query )
-
   for (let letter of letters) {
     const value = params.get(letter);
 
-    console.log("VALUE", value);
     if (value) {
       if (crumb) {
         crumb.label = value;
