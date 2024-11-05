@@ -37,15 +37,15 @@ const OrderSummary = (props) => {
             </span>
           </div>
           <div className={styles.labelContainer}>
-            <span>Shipping</span>
-            <span>£10</span>
+            <span>Free UK Shipping</span>
+            <span>£0</span>
           </div>
-          <div className={styles.labelContainer}>
+          {/*<div className={styles.labelContainer}>
             <span>Tax</span>
             <span>
               <CurrencyFormatter amount={subtotal/100 * 0.2} appendZero />
             </span>
-          </div>
+          </div> */}
         </div>
         {/*
         <div className={styles.couponContainer}>
@@ -68,7 +68,7 @@ const OrderSummary = (props) => {
         <div className={styles.totalContainer}>
           <span>Total: </span>
           <span>
-            <CurrencyFormatter amount={subtotal/100 * 1.2 + 10} appendZero />
+            <CurrencyFormatter amount={subtotal/100} appendZero />
           </span>
         </div>
       </div>
