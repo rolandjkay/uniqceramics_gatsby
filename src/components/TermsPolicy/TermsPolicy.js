@@ -21,12 +21,7 @@ const TermsPolicy = (props) => {
 
         <h3>Shop updates</h3>
 
-        <p>My online shop is usually restocked in large batches from time to time. I don't follow any specific timelines and announcements for when they'll go live can be
-          found on my Instagram page or by signing up to my newsletter. If you'd like a more concrete answer please get in touch.</p>
-
-        <p>I don't sell pots outside of these allocated shop restocks, and if you arrange a visit to my pottery, I can't guarantee work will be available to purchase, as
-          often I'm saving pots for future restocks or exhibitions.</p>
-
+        <p>Please sign up to the newsletter (below) for shop updates and kiln opening dates.</p>
 
       </div>
     </div>
