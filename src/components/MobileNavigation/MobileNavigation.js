@@ -28,6 +28,7 @@ const MobileNavigation = (props) => {
     <div className={styles.root}>
       <nav>
         <div className={styles.headerAuth}>
+        {/*
           {depth === 0 && isAuth() === false && (
             <div className={styles.authLinkContainer}>
               <Link to={'/signup'}>Sign Up</Link>
@@ -58,6 +59,8 @@ const MobileNavigation = (props) => {
               <span>my account</span>
             </div>
           )}
+
+          */}
 
           {depth === 1 && (
             <div
