@@ -34,7 +34,7 @@ const CartPage = (props) => {
             </div> */}
           </div>
           <div className={styles.summaryContainer}>
-            <h3>My Bag</h3>
+            <h3>My Cart</h3>
 
             <div className={styles.cartContainer}>
               <div className={styles.cartItemsContainer}>

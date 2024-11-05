@@ -35,7 +35,7 @@ const MiniCart = (props) => {
   return (
     <div className={styles.root}>
       <div className={styles.titleContainer}>
-        <h4>My Bag</h4>
+        <h4>My Cart</h4>
       </div>
       <div className={styles.cartItemsContainer}>
         {Object.values(cartDetails).map(cart_detail => (
