@@ -33,7 +33,13 @@ const useStripeInventory = () => {
   const { prices } = useStaticQuery(graphql`
     query ProductPrices {
       prices: allStripePrice(
-        filter: { active: { eq: true } }
+        filter: { 
+          # Filter out inactive prices
+          active: { eq: true },
+  
+          # Filter out archived products
+          product: { active: { eq: true } }
+        }
         sort: { unit_amount: ASC }
       ) {
         edges {
@@ -45,6 +51,7 @@ const useStripeInventory = () => {
             product {
               id
               name
+              active
               description
               images
               metadata { 
