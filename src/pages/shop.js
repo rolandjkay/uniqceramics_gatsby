@@ -122,7 +122,6 @@ const ShopPage = (props) => {
             </div>
             */}
             <div className={styles.productContainer}>
-              <span className={styles.mobileItemCount}>476 items</span>
               <ProductCardGrid category={category} subcategory={subcategory} />
             </div>
             {/*
