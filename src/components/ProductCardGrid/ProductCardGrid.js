@@ -20,7 +20,7 @@ const ProductCardGrid = (props) => {
   const showNotification = ctxAddItemNotification.showNotification;
 
   const handleAddToCart = (product_id) => {
-    const item = Object.values(cartDetails).find((i) => i.product_id == product_id);
+    const item = Object.values(cartDetails).find((i) => i.product_id === product_id);
 
     if (item) 
     {
@@ -30,7 +30,7 @@ const ProductCardGrid = (props) => {
     {
       addItem({product_id: product_id, currency: "GBP"});
     }
-    showNotification();
+    showNotification(product_id);
   };
 
   const renderCards = () => {

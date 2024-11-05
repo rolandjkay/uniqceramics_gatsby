@@ -2,6 +2,7 @@ import React, { createContext, useState, useEffect } from 'react';
 
 const defaultState = {
   open: false,
+  productId: null
 };
 
 export const NotificationContext = createContext(defaultState);
@@ -9,12 +10,12 @@ export const NotificationContext = createContext(defaultState);
 export const NotificationProvider = ({ children }) => {
   const [state, setState] = useState(defaultState);
 
-  const showNotification = () => {
-    setState({ ...state, open: true });
+  const showNotification = (productId) => {
+    setState({ ...state, open: true, productId: productId});
   };
 
   const closeNotification = () => {
-    setState({ ...state, open: false });
+    setState({ ...state, open: false});
   };
 
   useEffect(() => {
