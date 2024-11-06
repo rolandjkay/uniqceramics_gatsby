@@ -43,7 +43,7 @@ const ProductCard = (props) => {
         onClick={() => handleRouteToProduct()}
         role={'presentation'}
       >
-        <GatsbyImage style={{ height: `${height}px` }}
+        <GatsbyImage 
              image={image}
              alt={product.name}>
         </GatsbyImage>
