@@ -9,12 +9,15 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-source-stripe`,
       options: {
         objects: ["Price"],
         secretKey: process.env.STRIPE_SECRET_KEY ,
-        downloadFiles: false,
+        downloadFiles: true,
       },
     },
     {

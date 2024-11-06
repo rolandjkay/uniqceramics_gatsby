@@ -53,6 +53,11 @@ const useStripeInventory = () => {
               name
               active
               description
+              localFiles { # Access downloaded image files
+                childImageSharp {
+                  gatsbyImageData(width: 400, placeholder: BLURRED, layout: CONSTRAINED)
+                }
+              }
               images
               metadata { 
                 category 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { navigate } from 'gatsby';
 import * as styles from './ProductCard.module.css';
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import Icon from '../Icons/Icon';
 import CurrencyFormatter from '../CurrencyFormatter';
@@ -17,6 +18,9 @@ const ProductCard = (props) => {
 
   /* Originally in the template, but we don't support sales yet. */
   const originalPrice = null;
+
+  const product = inventory[product_id];
+  const image = getImage(product.localFiles[0]);
 
   const handleRouteToProduct = () => {
     navigate(`/product/sample?productId=${product_id}&${crumbsToQueryString(crumbs)}`);
@@ -39,10 +43,10 @@ const ProductCard = (props) => {
         onClick={() => handleRouteToProduct()}
         role={'presentation'}
       >
-        <img style={{ height: `${height}px` }}
-             src={toOptimizedImage(inventory[product_id].default_image)}
-             alt={inventory[product_id].name}>
-        </img>
+        <GatsbyImage style={{ height: `${height}px` }}
+             image={image}
+             alt={product.name}>
+        </GatsbyImage>
         <div
           className={styles.bagContainer}
           role={'presentation'}
