@@ -35,7 +35,7 @@ const FaqPage = (props) => {
               </p>
               <p>
                 If there’s something you want to know about your order, please
-                get in touch with us at customerservice@example.com or call us
+                get in touch with us at uniqc.ceramics@gmail.com or call us
                 on +44 (0)115 111 1111.
               </p>
             </div>
@@ -74,7 +74,7 @@ const FaqPage = (props) => {
               </p>
               <p>
                 If there’s something you want to know about your order, please
-                get in touch with us at customerservice@example.com call us on
+                get in touch with us at uniqc.ceramics@gmail.com call us on
                 +44 (0)115 111 1111.
               </p>
             </div>
