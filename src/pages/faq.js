@@ -104,7 +104,7 @@ const FaqPage = (props) => {
                 use of your card will take place on our website. But if a
                 fraudulent transaction does take place, first contact your
                 credit or debit card company so they can protect your card and
-                reimburse you. Then let us know at customerservice@example.com
+                reimburse you. Then let us know at uniqc.ceramics@gmail.com
                 and we will work with your card company to minimise any further
                 inconvenience to you.
               </p>

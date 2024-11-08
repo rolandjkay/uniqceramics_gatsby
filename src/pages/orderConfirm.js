@@ -24,7 +24,7 @@ const OrderConfirmPage = (props) => {
           <h1>Thank You!</h1>
           <p>
             We are now processing your order. If you have any concerns feel free
-            to email us at customerservice@example.com
+            to email us at uniqc.ceramics@gmail.com
           </p>
           <div className={styles.actionContainer}>
             {/*<ActionCard
